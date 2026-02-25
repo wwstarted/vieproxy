@@ -1,0 +1,414 @@
+/* ============================================================
+   SITE HEADER
+   ============================================================ */
+
+.site-header {
+  width: 100%;
+  background-color: #ffffff;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
+
+.header-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 64px;
+}
+
+/* ============================================================
+   LOGO
+   ============================================================ */
+
+.header-logo a {
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+}
+
+.header-logo .logo-img {
+  height: 40px;
+  width: auto;
+  display: block;
+  object-fit: contain;
+}
+
+/* Fallback khi chưa có logo thật */
+.header-logo .logo-img[src$="logo.png"]:not([width]) {
+  min-width: 100px;
+}
+
+/* ============================================================
+   RIGHT SIDE — flex container
+   ============================================================ */
+
+.header-right {
+  display: flex;
+  align-items: center;
+  gap: 28px;
+}
+
+/* ============================================================
+   NAVIGATION MENU
+   ============================================================ */
+
+.header-nav .nav-menu {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  align-items: center;
+  gap: 32px;
+}
+
+.header-nav .nav-menu li {
+  position: relative;
+}
+
+.header-nav .nav-menu li a {
+  text-decoration: none;
+  color: var(--text-color);
+  font-size: 14.5px;
+  font-weight: 500;
+  letter-spacing: 0.01em;
+  transition: color 0.2s ease;
+  white-space: nowrap;
+  text-transform: capitalize;
+}
+
+.header-nav .nav-menu li a:hover,
+.header-nav .nav-menu li.current-menu-item > a,
+.header-nav .nav-menu li.current-menu-ancestor > a {
+  color: var(--primary-color, #007bf3);
+}
+
+/* Underline hover effect */
+.header-nav .nav-menu li a::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -4px;
+  width: 0;
+  height: 2px;
+  background-color: var(--primary-color, #007bf3);
+  border-radius: 2px;
+  transition: width 0.25s ease;
+}
+
+.header-nav .nav-menu li a:hover::after,
+.header-nav .nav-menu li.current-menu-item > a::after {
+  width: 100%;
+}
+
+/* ============================================================
+   CART ICON
+   ============================================================ */
+
+.header-cart {
+  position: relative;
+}
+
+.cart-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  background-color: #f0f4f8;
+  border-radius: 50%;
+  text-decoration: none;
+  color: #444;
+  font-size: 15px;
+  transition:
+    background-color 0.2s ease,
+    color 0.2s ease;
+}
+
+.cart-btn:hover {
+  background-color: var(--primary-color, #007bf3);
+  color: #ffffff;
+}
+
+.cart-badge {
+  position: absolute;
+  top: -5px;
+  right: -5px;
+  min-width: 17px;
+  height: 17px;
+  padding: 0 4px;
+  background-color: var(--primary-color, #007bf3);
+  color: #ffffff;
+  font-size: 10px;
+  font-weight: 700;
+  border-radius: 999px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  line-height: 1;
+  border: 2px solid #ffffff;
+  pointer-events: none;
+}
+
+/* ============================================================
+   LANGUAGE SWITCHER
+   ============================================================ */
+
+.header-lang {
+  position: relative;
+}
+
+.lang-toggle {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 4px 6px;
+  border-radius: 6px;
+  transition: background-color 0.2s ease;
+}
+
+.lang-toggle:hover {
+  background-color: #f0f4f8;
+}
+
+.flag-icon {
+  width: 22px;
+  object-fit: cover;
+  border-radius: 2px;
+  display: block;
+}
+
+.lang-arrow {
+  font-size: 10px;
+  color: #666;
+  transition: transform 0.25s ease;
+}
+
+.lang-toggle[aria-expanded="true"] .lang-arrow {
+  transform: rotate(180deg);
+}
+
+.lang-dropdown {
+  position: absolute;
+  top: calc(100% + 10px);
+  right: 0;
+  background-color: #ffffff;
+  border: 1px solid #e4e8ee;
+  border-radius: 8px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+  list-style: none;
+  padding: 6px;
+  margin: 0;
+  min-width: 148px;
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(-6px);
+  transition:
+    opacity 0.2s ease,
+    transform 0.2s ease,
+    visibility 0.2s;
+  z-index: 200;
+}
+
+.lang-dropdown.is-open {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+}
+
+.lang-option {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  padding: 8px 10px;
+  border-radius: 6px;
+  text-decoration: none;
+  color: #333;
+  font-size: 13.5px;
+  font-weight: 500;
+  transition: background-color 0.15s ease;
+}
+
+.lang-option:hover {
+  background-color: #f4f7fb;
+  color: var(--primary-color, #007bf3);
+}
+
+.lang-option.lang-active {
+  color: var(--primary-color, #007bf3);
+}
+
+/* ============================================================
+   AUTH BUTTONS
+   ============================================================ */
+
+.header-auth {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 8px 18px;
+  font-size: 13.5px;
+  font-weight: 600;
+  border-radius: 6px;
+  text-decoration: none;
+  white-space: nowrap;
+  transition: all 0.2s ease;
+  letter-spacing: 0.01em;
+  cursor: pointer;
+}
+
+/* Đăng Nhập — ghost/outline style */
+.btn-login {
+  color: #333333;
+  background-color: transparent;
+  border: 1.5px solid #d0d6df;
+}
+
+.btn-login:hover {
+  border-color: var(--primary-color, #007bf3);
+  color: var(--primary-color, #007bf3);
+  background-color: #f0f7ff;
+}
+
+/* Đăng Ký — filled blue */
+.btn-register {
+  color: #ffffff;
+  background-color: var(--primary-color, #007bf3);
+  border: 1.5px solid var(--primary-color, #007bf3);
+}
+
+.btn-register:hover {
+  background-color: #0068d0;
+  border-color: #0068d0;
+  color: #ffffff;
+  box-shadow: 0 4px 12px rgba(0, 123, 243, 0.3);
+  transform: translateY(-1px);
+}
+
+/* ============================================================
+   HAMBURGER (Mobile)
+   ============================================================ */
+
+.hamburger {
+  display: none;
+  flex-direction: column;
+  justify-content: center;
+  gap: 5px;
+  width: 36px;
+  height: 36px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 4px;
+  border-radius: 6px;
+  transition: background-color 0.2s;
+}
+
+.hamburger:hover {
+  background-color: #f0f4f8;
+}
+
+.hamburger span {
+  display: block;
+  height: 2px;
+  width: 100%;
+  background-color: #444;
+  border-radius: 2px;
+  transition:
+    transform 0.25s ease,
+    opacity 0.2s ease,
+    width 0.2s ease;
+  transform-origin: center;
+}
+
+/* Hamburger → X khi active */
+.hamburger.is-active span:nth-child(1) {
+  transform: translateY(7px) rotate(45deg);
+}
+
+.hamburger.is-active span:nth-child(2) {
+  opacity: 0;
+  width: 0;
+}
+
+.hamburger.is-active span:nth-child(3) {
+  transform: translateY(-7px) rotate(-45deg);
+}
+
+/* ============================================================
+   RESPONSIVE — Tablet & Mobile
+   ============================================================ */
+
+@media (max-width: 1024px) {
+  .hamburger {
+    display: flex;
+  }
+
+  .header-right {
+    position: fixed;
+    top: 64px;
+    left: 0;
+    right: 0;
+    background-color: #ffffff;
+    border-top: 1px solid #e8ecf0;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
+    flex-direction: column;
+    align-items: stretch;
+    gap: 0;
+    padding: 16px 20px 20px;
+    transform: translateY(-8px);
+    opacity: 0;
+    visibility: hidden;
+    transition:
+      opacity 0.25s ease,
+      transform 0.25s ease,
+      visibility 0.25s;
+    z-index: 999;
+  }
+
+  .header-right.is-open {
+    transform: translateY(0);
+    opacity: 1;
+    visibility: visible;
+  }
+
+  .header-nav .nav-menu {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 4px;
+  }
+
+  .header-nav .nav-menu li a {
+    display: block;
+    padding: 10px 4px;
+    font-size: 15px;
+    border-bottom: 1px solid #f0f4f8;
+  }
+
+  .header-auth {
+    flex-direction: column;
+    gap: 8px;
+    margin-top: 8px;
+  }
+
+  .btn {
+    width: 100%;
+    justify-content: center;
+    padding: 11px 18px;
+    font-size: 14px;
+  }
+
+  .header-cart,
+  .header-lang {
+    display: none;
+  }
+}
