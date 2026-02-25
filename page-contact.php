@@ -16,54 +16,51 @@ $company_fb = 'VieProxyVN';
 <main class="main-info-page main-contact-page">
 
     <!-- ═══════════════════════════════════════════════
-         BREADCRUMB
+         PAGE HERO  (breadcrumb embedded — same pattern as proxy-hero)
     ════════════════════════════════════════════════ -->
-    <div class="info-breadcrumb">
+    <section class="contact-hero">
         <div class="wrapper">
-            <nav aria-label="breadcrumbs" class="info-breadcrumb__nav">
-                <a href="<?php echo esc_url(home_url('/')); ?>">Trang chủ</a>
-                <span class="info-breadcrumb__sep"><i class="fa-solid fa-chevron-right"></i></span>
-                <span class="info-breadcrumb__current">Liên Hệ</span>
+
+            <!-- Breadcrumb — inside hero, mirrors proxy-hero__breadcrumb -->
+            <nav class="contact-hero__breadcrumb" aria-label="breadcrumb">
+                <a href="<?php echo esc_url(home_url('/')); ?>" class="breadcrumb-link">Trang chủ</a>
+                <span class="breadcrumb-sep"><i class="fa-solid fa-chevron-right"></i></span>
+                <span class="breadcrumb-current">Liên Hệ</span>
             </nav>
-        </div>
-    </div>
 
-    <!-- ═══════════════════════════════════════════════
-         PAGE HERO
-    ════════════════════════════════════════════════ -->
-    <section class="info-page-hero contact-hero">
-        <div class="info-page-hero__bg"></div>
-
-        <!-- Decorative floating blobs -->
-        <div class="contact-hero__blob contact-hero__blob--1"></div>
-        <div class="contact-hero__blob contact-hero__blob--2"></div>
-
-        <div class="wrapper info-page-hero__inner">
-            <div class="info-page-hero__icon">
-                <i class="fa-solid fa-headset"></i>
-            </div>
-            <div class="info-page-hero__content">
-                <h1 class="info-page-hero__title">Liên Hệ Với Chúng Tôi</h1>
-                <p class="info-page-hero__subtitle">
-                    Đội ngũ hỗ trợ <?php echo esc_html($company_name); ?> luôn sẵn sàng giải đáp mọi thắc mắc.
-                    Hãy liên hệ với chúng tôi qua bất kỳ kênh nào bạn thuận tiện.
-                </p>
-                <div class="info-page-hero__meta">
-                    <span class="info-page-hero__badge">
-                        <i class="fa-solid fa-clock"></i>
-                        Hỗ trợ 7 ngày / tuần
-                    </span>
-                    <span class="info-page-hero__badge">
-                        <i class="fa-solid fa-bolt"></i>
-                        Phản hồi trong 1 giờ
-                    </span>
-                    <span class="info-page-hero__badge">
-                        <i class="fa-solid fa-globe"></i>
-                        8:00 – 22:00 GMT+7
-                    </span>
+            <!-- Hero body -->
+            <div class="contact-hero__inner">
+                <!-- <div class="contact-hero__icon">
+                    <i class="fa-solid fa-headset"></i>
+                </div> -->
+                <div class="contact-hero__content">
+                    <h1 class="contact-hero__title">Liên Hệ Với Chúng Tôi</h1>
+                    <p class="contact-hero__subtitle">
+                        Đội ngũ hỗ trợ <?php echo esc_html($company_name); ?> luôn sẵn sàng giải đáp mọi thắc mắc.
+                        Hãy liên hệ với chúng tôi qua bất kỳ kênh nào bạn thuận tiện.
+                    </p>
+                    <div class="contact-hero__meta">
+                        <span class="contact-hero__badge">
+                            <i class="fa-solid fa-clock"></i>
+                            Hỗ trợ 7 ngày / tuần
+                        </span>
+                        <span class="contact-hero__badge">
+                            <i class="fa-solid fa-bolt"></i>
+                            Phản hồi trong 1 giờ
+                        </span>
+                        <span class="contact-hero__badge">
+                            <i class="fa-solid fa-globe"></i>
+                            8:00 – 22:00 GMT+7
+                        </span>
+                    </div>
                 </div>
             </div>
+
         </div>
+
+        <!-- Decorative blobs -->
+        <div class="contact-hero__blob contact-hero__blob--1"></div>
+        <div class="contact-hero__blob contact-hero__blob--2"></div>
     </section>
 
     <!-- ═══════════════════════════════════════════════
@@ -193,7 +190,7 @@ $company_fb = 'VieProxyVN';
                 </div>
 
                 <!-- Quick Links -->
-                <div class="contact-sidebar-card">
+                <!-- <div class="contact-sidebar-card">
                     <div class="contact-sidebar-card__header">
                         <i class="fa-solid fa-link"></i>
                         <span>Truy cập nhanh</span>
@@ -236,7 +233,7 @@ $company_fb = 'VieProxyVN';
                             </a>
                         </li>
                     </ul>
-                </div>
+                </div> -->
 
             </aside>
 
@@ -291,7 +288,7 @@ $company_fb = 'VieProxyVN';
                                 <div class="contact-form-input-wrap">
                                     <i class="fa-solid fa-user contact-form-input-icon"></i>
                                     <input type="text" id="contactName" name="contact_name" class="contact-form-input"
-                                        placeholder="Nguyễn Văn A" autocomplete="name" required />
+                                        placeholder="Vo Cao Thuy Mai" autocomplete="name" required />
                                 </div>
                                 <span class="contact-form-error-msg" id="error-name">Vui lòng nhập họ tên.</span>
                             </div>
@@ -425,7 +422,7 @@ $company_fb = 'VieProxyVN';
                 </div><!-- /.contact-form-card -->
 
                 <!-- FAQ mini section -->
-                <div class="contact-faq-section">
+                <!-- <div class="contact-faq-section">
                     <h3 class="contact-faq-title">
                         <i class="fa-solid fa-circle-question"></i>
                         Câu hỏi thường gặp
@@ -498,7 +495,7 @@ $company_fb = 'VieProxyVN';
                         </div>
 
                     </div>
-                </div><!-- /.contact-faq-section -->
+                </div> -->
 
             </div><!-- /.contact-main -->
         </div>

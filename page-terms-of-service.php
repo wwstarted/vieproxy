@@ -14,46 +14,44 @@ $company_zalo = '034.770.0437';
 
 <main class="main-info-page">
 
-    <!-- ═══════════════════════════════════════════════
-         BREADCRUMB
-    ════════════════════════════════════════════════ -->
-    <div class="info-breadcrumb">
-        <div class="wrapper">
-            <nav aria-label="breadcrumbs" class="info-breadcrumb__nav">
-                <a href="<?php echo esc_url(home_url('/')); ?>">Trang chủ</a>
-                <span class="info-breadcrumb__sep"><i class="fa-solid fa-chevron-right"></i></span>
-                <span class="info-breadcrumb__current">Điều Khoản Dịch Vụ</span>
-            </nav>
-        </div>
-    </div>
 
-    <!-- ═══════════════════════════════════════════════
-         PAGE HERO
-    ════════════════════════════════════════════════ -->
     <section class="info-page-hero info-page-hero--terms">
-        <div class="info-page-hero__bg"></div>
-        <div class="wrapper info-page-hero__inner">
-            <div class="info-page-hero__icon">
-                <i class="fa-solid fa-file-contract"></i>
-            </div>
-            <div class="info-page-hero__content">
-                <h1 class="info-page-hero__title">Điều Khoản Dịch Vụ</h1>
-                <p class="info-page-hero__subtitle">
-                    Vui lòng đọc kỹ các điều khoản và điều kiện này trước khi sử dụng dịch vụ proxy của
-                    <?php echo esc_html($company_name); ?>. Việc sử dụng dịch vụ đồng nghĩa với việc bạn chấp nhận toàn
-                    bộ điều khoản.
-                </p>
-                <div class="info-page-hero__meta">
-                    <span class="info-page-hero__badge">
-                        <i class="fa-regular fa-calendar"></i>
-                        Cập nhật lần cuối: <?php echo esc_html($last_updated); ?>
-                    </span>
-                    <span class="info-page-hero__badge">
-                        <i class="fa-solid fa-scale-balanced"></i>
-                        Áp dụng theo pháp luật Việt Nam
-                    </span>
+        <div class="wrapper">
+
+            <!-- Breadcrumb — inside hero -->
+            <nav class="info-page-hero__breadcrumb" aria-label="breadcrumb">
+                <a href="<?php echo esc_url(home_url('/')); ?>" class="breadcrumb-link">Trang chủ</a>
+                <span class="breadcrumb-sep"><i class="fa-solid fa-chevron-right"></i></span>
+                <span class="breadcrumb-current">Điều Khoản Dịch Vụ</span>
+            </nav>
+
+            <!-- Hero body -->
+            <div class="info-page-hero__inner">
+                <!-- <div class="info-page-hero__icon">
+                    <i class="fa-solid fa-file-contract"></i>
+                </div> -->
+
+                <div class="info-page-hero__content">
+                    <h1 class="info-page-hero__title">Điều Khoản Dịch Vụ</h1>
+                    <p class="info-page-hero__subtitle">
+                        Vui lòng đọc kỹ các điều khoản và điều kiện này trước khi sử dụng dịch vụ proxy của
+                        <?php echo esc_html($company_name); ?>. Việc sử dụng dịch vụ đồng nghĩa với việc bạn chấp nhận
+                        toàn
+                        bộ điều khoản.
+                    </p>
+                    <div class="info-page-hero__meta">
+                        <span class="info-page-hero__badge">
+                            <i class="fa-regular fa-calendar"></i>
+                            Cập nhật lần cuối: <?php echo esc_html($last_updated); ?>
+                        </span>
+                        <span class="info-page-hero__badge">
+                            <i class="fa-solid fa-scale-balanced"></i>
+                            Áp dụng theo pháp luật Việt Nam
+                        </span>
+                    </div>
                 </div>
             </div>
+
         </div>
     </section>
 
@@ -123,9 +121,7 @@ $company_zalo = '034.770.0437';
                         ("Người dùng") và <strong><?php echo esc_html($company_name); ?></strong> ("Chúng tôi", "Công
                         ty").
                     </p>
-                    <p>
-                        Bạn phải đáp ứng đủ điều kiện để sử dụng dịch vụ:
-                    </p>
+                    <p>Bạn phải đáp ứng đủ điều kiện để sử dụng dịch vụ:</p>
                     <ul class="info-list info-list--check">
                         <li>Từ đủ 18 tuổi hoặc có sự đồng ý của người giám hộ hợp pháp.</li>
                         <li>Có đủ năng lực pháp lý để ký kết hợp đồng tại quốc gia của bạn.</li>
@@ -353,8 +349,7 @@ $company_zalo = '034.770.0437';
                     <div class="info-highlight-box info-highlight-box--blue">
                         <i class="fa-solid fa-circle-info"></i>
                         <p>SLA không áp dụng cho các trường hợp downtime do bất khả kháng như thiên tai, sự cố mạng
-                            Internet
-                            quốc tế, hoặc các cuộc tấn công DDoS quy mô lớn.</p>
+                            Internet quốc tế, hoặc các cuộc tấn công DDoS quy mô lớn.</p>
                     </div>
                 </section>
 
@@ -366,9 +361,8 @@ $company_zalo = '034.770.0437';
                     </div>
                     <p>
                         Tất cả nội dung trên website và dịch vụ <?php echo esc_html($company_name); ?>, bao gồm nhưng
-                        không giới hạn:
-                        logo, thiết kế, giao diện, phần mềm, tài liệu, và nội dung văn bản, đều thuộc quyền sở hữu
-                        của <?php echo esc_html($company_name); ?> hoặc các nhà cấp phép tương ứng.
+                        không giới hạn: logo, thiết kế, giao diện, phần mềm, tài liệu, và nội dung văn bản, đều thuộc
+                        quyền sở hữu của <?php echo esc_html($company_name); ?> hoặc các nhà cấp phép tương ứng.
                     </p>
                     <ul class="info-list">
                         <li>Bạn được cấp quyền sử dụng dịch vụ theo giấy phép có giới hạn, không độc quyền, không thể
@@ -386,18 +380,15 @@ $company_zalo = '034.770.0437';
                         <div class="info-section__num">08</div>
                         <h2>Giới hạn trách nhiệm</h2>
                     </div>
-                    <p>
-                        Trong phạm vi tối đa được pháp luật cho phép:
-                    </p>
+                    <p>Trong phạm vi tối đa được pháp luật cho phép:</p>
                     <ul class="info-list">
                         <li><?php echo esc_html($company_name); ?> <strong>không chịu trách nhiệm</strong> về các thiệt
-                            hại gián tiếp, ngẫu nhiên, đặc biệt,
-                            hậu quả hoặc thiệt hại trừng phạt, kể cả mất dữ liệu, mất doanh thu hoặc mất lợi nhuận.</li>
+                            hại gián tiếp, ngẫu nhiên, đặc biệt, hậu quả hoặc thiệt hại trừng phạt, kể cả mất dữ liệu,
+                            mất doanh thu hoặc mất lợi nhuận.</li>
                         <li>Tổng trách nhiệm pháp lý của chúng tôi đối với bất kỳ khiếu nại nào sẽ không vượt quá
                             số tiền bạn đã thanh toán cho dịch vụ trong 30 ngày trước khi phát sinh khiếu nại.</li>
                         <li><?php echo esc_html($company_name); ?> không chịu trách nhiệm về cách bạn sử dụng dịch vụ
-                            proxy,
-                            bao gồm bất kỳ vi phạm pháp luật hoặc điều khoản dịch vụ của bên thứ ba.</li>
+                            proxy, bao gồm bất kỳ vi phạm pháp luật hoặc điều khoản dịch vụ của bên thứ ba.</li>
                         <li>Chúng tôi không đảm bảo dịch vụ không có lỗi, không bị gián đoạn, hoặc phù hợp cho
                             mục đích cụ thể của bạn.</li>
                     </ul>
@@ -532,8 +523,7 @@ $company_zalo = '034.770.0437';
                         <i class="fa-solid fa-arrow-left"></i>
                         Chính sách bảo mật
                     </a>
-                    <a href="<?php echo esc_url(home_url('/')); ?>"
-                        class="info-page-nav__btn info-page-nav__btn--next">
+                    <a href="<?php echo esc_url(home_url('/')); ?>" class="info-page-nav__btn info-page-nav__btn--next">
                         Về trang chủ
                         <i class="fa-solid fa-arrow-right"></i>
                     </a>

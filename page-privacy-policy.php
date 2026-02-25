@@ -14,45 +14,41 @@ $company_zalo = '034.770.0437';
 
 <main class="main-info-page">
 
-    <!-- ═══════════════════════════════════════════════
-         BREADCRUMB
-    ════════════════════════════════════════════════ -->
-    <div class="info-breadcrumb">
-        <div class="wrapper">
-            <nav aria-label="breadcrumbs" class="info-breadcrumb__nav">
-                <a href="<?php echo esc_url(home_url('/')); ?>">Trang chủ</a>
-                <span class="info-breadcrumb__sep"><i class="fa-solid fa-chevron-right"></i></span>
-                <span class="info-breadcrumb__current">Chính Sách Bảo Mật</span>
-            </nav>
-        </div>
-    </div>
 
-    <!-- ═══════════════════════════════════════════════
-         PAGE HERO
-    ════════════════════════════════════════════════ -->
     <section class="info-page-hero">
-        <div class="info-page-hero__bg"></div>
-        <div class="wrapper info-page-hero__inner">
-            <div class="info-page-hero__icon">
-                <i class="fa-solid fa-shield-halved"></i>
-            </div>
-            <div class="info-page-hero__content">
-                <h1 class="info-page-hero__title">Chính Sách Bảo Mật</h1>
-                <p class="info-page-hero__subtitle">
-                    Chúng tôi cam kết bảo vệ thông tin cá nhân và quyền riêng tư của bạn.
-                    Vui lòng đọc kỹ chính sách này để hiểu cách chúng tôi xử lý dữ liệu của bạn.
-                </p>
-                <div class="info-page-hero__meta">
-                    <span class="info-page-hero__badge">
-                        <i class="fa-regular fa-calendar"></i>
-                        Cập nhật lần cuối: <?php echo esc_html($last_updated); ?>
-                    </span>
-                    <span class="info-page-hero__badge">
-                        <i class="fa-solid fa-lock"></i>
-                        GDPR Compliant
-                    </span>
+        <div class="wrapper">
+
+            <!-- Breadcrumb — inside hero -->
+            <nav class="info-page-hero__breadcrumb" aria-label="breadcrumb">
+                <a href="<?php echo esc_url(home_url('/')); ?>" class="breadcrumb-link">Trang chủ</a>
+                <span class="breadcrumb-sep"><i class="fa-solid fa-chevron-right"></i></span>
+                <span class="breadcrumb-current">Chính Sách Bảo Mật</span>
+            </nav>
+
+            <!-- Hero body -->
+            <div class="info-page-hero__inner">
+                <!-- <div class="info-page-hero__icon">
+                    <i class="fa-solid fa-shield-halved"></i>
+                </div> -->
+                <div class="info-page-hero__content">
+                    <h1 class="info-page-hero__title">Chính Sách Bảo Mật</h1>
+                    <p class="info-page-hero__subtitle">
+                        Chúng tôi cam kết bảo vệ thông tin cá nhân và quyền riêng tư của bạn.
+                        Vui lòng đọc kỹ chính sách này để hiểu cách chúng tôi xử lý dữ liệu của bạn.
+                    </p>
+                    <div class="info-page-hero__meta">
+                        <span class="info-page-hero__badge">
+                            <i class="fa-regular fa-calendar"></i>
+                            Cập nhật lần cuối: <?php echo esc_html($last_updated); ?>
+                        </span>
+                        <span class="info-page-hero__badge">
+                            <i class="fa-solid fa-lock"></i>
+                            GDPR Compliant
+                        </span>
+                    </div>
                 </div>
             </div>
+
         </div>
     </section>
 
@@ -449,8 +445,7 @@ $company_zalo = '034.770.0437';
 
                 <!-- Page Footer Nav -->
                 <div class="info-page-nav">
-                    <a href="<?php echo esc_url(home_url('/')); ?>"
-                        class="info-page-nav__btn info-page-nav__btn--back">
+                    <a href="<?php echo esc_url(home_url('/')); ?>" class="info-page-nav__btn info-page-nav__btn--back">
                         <i class="fa-solid fa-arrow-left"></i>
                         Về trang chủ
                     </a>
