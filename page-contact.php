@@ -503,9 +503,4 @@ $company_fb = 'VieProxyVN';
 
 </main>
 
-<!-- Back to Top Button -->
-<button class="info-back-to-top" id="backToTop" aria-label="Về đầu trang">
-    <i class="fa-solid fa-chevron-up"></i>
-</button>
-
 <?php get_footer(); ?>

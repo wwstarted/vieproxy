@@ -125,10 +125,68 @@ function vieproxy_theme_enqueue_assets()
         true
     );
 
+    wp_enqueue_style(
+        'back-to-top',
+        get_template_directory_uri() . '/css/back-to-top.css',
+        array(),
+        filemtime(get_stylesheet_directory() . '/css/back-to-top.css')
+    );
+
+    wp_enqueue_script(
+        'back-to-top',
+        get_template_directory_uri() . '/js/back-to-top.js',
+        array(),
+        filemtime(get_template_directory() . '/js/back-to-top.js'),
+        true
+    );
+
+    // Reading Progress Bar 
+    $show_progress = (
+        is_page_template('page-privacy-policy.php') ||
+        is_page_template('page-terms-of-service.php') ||
+        is_page_template('page-contact.php') ||
+        is_single()
+    );
+
+    if ($show_progress) {
+        wp_enqueue_style(
+            'reading-progress',
+            get_template_directory_uri() . '/css/reading-progress.css',
+            array(),
+            filemtime(get_stylesheet_directory() . '/css/reading-progress.css')
+        );
+        wp_enqueue_script(
+            'reading-progress',
+            get_template_directory_uri() . '/js/reading-progress.js',
+            array(),
+            filemtime(get_template_directory() . '/js/reading-progress.js'),
+            true
+        );
+    }
+
+    if (is_page_template('page-about.php')) {
+
+        wp_enqueue_style('info-pages-style', get_template_directory_uri() . '/css/info-pages.css', [], '1.0.0');
+
+        wp_enqueue_style(
+            'vieproxy-about',
+            get_template_directory_uri() . '/css/about.css',
+            ['info-pages-style'],
+            filemtime(get_stylesheet_directory() . '/css/about.css')
+        );
+        wp_enqueue_script(
+            'vieproxy-about',
+            get_template_directory_uri() . '/js/about.js',
+            [],
+            filemtime(get_template_directory() . '/js/about.js'),
+            true
+        );
+    }
+
 }
 add_action('wp_enqueue_scripts', 'vieproxy_theme_enqueue_assets');
 
-// Thêm hàm cho phép upload ảnh thumnail cho bài post
+
 add_theme_support('post-thumbnails');
 
 // Đăng ký menus

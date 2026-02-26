@@ -1,0 +1,376 @@
+/* ============================================================
+   ABOUT PAGE — page-about.css
+   Extends info-pages.css — VieProxy design system
+   ============================================================ */
+
+/* ============================================================
+   ABOUT HERO
+   Mirror pattern của contact-hero / info-page-hero
+   ============================================================ */
+.about-hero {
+  background: linear-gradient(135deg, #eef6ff 0%, #f5f9ff 60%, #ffffff 100%);
+  padding: 36px 0 40px;
+  border-bottom: 1px solid #e8f0fb;
+  position: relative;
+  overflow: hidden;
+}
+
+.about-hero::before {
+  content: "";
+  position: absolute;
+  right: -80px;
+  top: -60px;
+  width: 340px;
+  height: 340px;
+  background: radial-gradient(
+    circle,
+    rgba(0, 123, 243, 0.08) 0%,
+    transparent 70%
+  );
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* ── Breadcrumb ── */
+.about-hero__breadcrumb {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  margin-bottom: 20px;
+  font-size: 14px;
+  position: relative;
+  z-index: 1;
+}
+
+.about-hero__breadcrumb .breadcrumb-link {
+  color: #6b7280;
+  text-decoration: none;
+  transition: color 0.2s;
+}
+.about-hero__breadcrumb .breadcrumb-link:hover {
+  color: #007bf3;
+}
+.about-hero__breadcrumb .breadcrumb-sep {
+  color: #d1d5db;
+  font-size: 11px;
+}
+.about-hero__breadcrumb .breadcrumb-current {
+  color: #007bf3;
+  font-weight: 500;
+}
+
+/* ── Hero Inner ── */
+.about-hero__inner {
+  position: relative;
+  z-index: 1;
+}
+
+.about-hero__title {
+  font-size: clamp(28px, 4vw, 42px);
+  font-weight: 800;
+  color: #1f2937;
+  margin: 0 0 12px;
+  line-height: 1.15;
+  letter-spacing: -0.5px;
+}
+
+.about-hero__title-accent {
+  color: #007bf3;
+}
+
+.about-hero__subtitle {
+  font-size: 15.5px;
+  color: #4b5563;
+  line-height: 1.7;
+  margin: 0 0 20px;
+  max-width: 600px;
+}
+
+.about-hero__meta {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.about-hero__badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  padding: 7px 14px;
+  background: rgba(255, 255, 255, 0.8);
+  border: 1.5px solid rgba(0, 123, 243, 0.18);
+  border-radius: 20px;
+  font-size: 13px;
+  font-weight: 500;
+  color: #2d3f5c;
+  backdrop-filter: blur(6px);
+}
+
+.about-hero__badge i {
+  color: #007bf3;
+  font-size: 12px;
+}
+
+/* ── Decorative blobs ── */
+.about-hero__blob {
+  position: absolute;
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 0;
+  opacity: 0.25;
+  filter: blur(42px);
+}
+
+.about-hero__blob--1 {
+  width: 260px;
+  height: 260px;
+  background: radial-gradient(circle, #4facf7, #007bf3);
+  top: -70px;
+  right: 8%;
+  animation: aboutBlob1 9s ease-in-out infinite;
+}
+.about-hero__blob--2 {
+  width: 180px;
+  height: 180px;
+  background: radial-gradient(circle, #a8d8ff, #4facf7);
+  bottom: -40px;
+  left: 18%;
+  animation: aboutBlob2 11s ease-in-out infinite;
+}
+
+@keyframes aboutBlob1 {
+  0%,
+  100% {
+    transform: translate(0, 0) scale(1);
+  }
+  50% {
+    transform: translate(18px, -14px) scale(1.05);
+  }
+}
+@keyframes aboutBlob2 {
+  0%,
+  100% {
+    transform: translate(0, 0) scale(1);
+  }
+  50% {
+    transform: translate(-16px, -18px) scale(1.08);
+  }
+}
+
+/* ============================================================
+   PAGE WRAPPER
+   ============================================================ */
+.about-page-wrapper {
+  padding-top: 52px;
+  padding-bottom: 80px;
+}
+
+/* ============================================================
+   ARTICLE
+   ============================================================ */
+.about-article {
+  max-width: 780px;
+  margin: 0 auto;
+  background: #ffffff;
+  border: 1.5px solid #e5e7eb;
+  border-radius: 20px;
+  padding: 44px 48px 40px;
+  box-shadow: 0 4px 24px rgba(0, 123, 243, 0.05);
+}
+
+/* ── Typography ── */
+.about-article p {
+  font-size: 15.5px;
+  color: #4b5563;
+  line-height: 1.8;
+  margin: 0 0 18px;
+}
+
+.about-article p:last-of-type {
+  margin-bottom: 0;
+}
+
+.about-article strong {
+  color: #1f2937;
+  font-weight: 700;
+}
+
+.about-article h2 {
+  font-size: 20px;
+  font-weight: 700;
+  color: #1f2937;
+  margin: 36px 0 14px;
+  padding-left: 14px;
+  border-left: 3px solid #007bf3;
+  line-height: 1.3;
+}
+
+.about-article h2:first-of-type {
+  margin-top: 32px;
+}
+
+/* ── Divider tự động giữa intro và h2 ── */
+.about-article h2:first-of-type {
+  position: relative;
+  padding-top: 32px;
+}
+
+.about-article h2:first-of-type::before {
+  content: "";
+  display: block;
+  position: absolute;
+  top: 0;
+  left: -48px;
+  right: -48px;
+  height: 1px;
+  background: #f3f4f6;
+}
+
+/* ============================================================
+   SOCIAL ICONS
+   ============================================================ */
+.about-social {
+  margin-top: 40px;
+  padding-top: 32px;
+  border-top: 1.5px solid #f3f4f6;
+}
+
+.about-social__label {
+  font-size: 13px;
+  font-weight: 600;
+  color: #9ca3af;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  margin: 0 0 16px;
+}
+
+.about-social__icons {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.about-social__icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 44px;
+  height: 44px;
+  border-radius: 12px;
+  font-size: 18px;
+  color: #ffffff;
+  text-decoration: none;
+  transition: all 0.25s ease;
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.12);
+}
+
+.about-social__icon:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.18);
+}
+
+.about-social__icon--email {
+  background: linear-gradient(135deg, #4facf7, #007bf3);
+}
+.about-social__icon--tg {
+  background: linear-gradient(135deg, #2ca5e0, #0088cc);
+}
+.about-social__icon--zalo {
+  background: linear-gradient(135deg, #0068ff, #004ecc);
+}
+.about-social__icon--fb {
+  background: linear-gradient(135deg, #1877f2, #0d65d9);
+}
+
+.about-social__icon i {
+  font-size: 17px;
+}
+
+/* ============================================================
+   RESPONSIVE — TABLET (≤ 768px)
+   ============================================================ */
+@media (max-width: 768px) {
+  .about-hero {
+    padding: 26px 0 30px;
+  }
+
+  .about-hero__title {
+    font-size: 26px;
+  }
+  .about-hero__subtitle {
+    font-size: 14.5px;
+    margin-bottom: 16px;
+  }
+
+  .about-page-wrapper {
+    padding-top: 32px;
+    padding-bottom: 60px;
+  }
+
+  .about-article {
+    padding: 28px 24px 28px;
+    border-radius: 16px;
+  }
+
+  .about-article h2:first-of-type::before {
+    left: -24px;
+    right: -24px;
+  }
+
+  .about-article p {
+    font-size: 15px;
+  }
+  .about-article h2 {
+    font-size: 18px;
+    margin: 28px 0 12px;
+  }
+}
+
+/* ============================================================
+   RESPONSIVE — SMALL MOBILE (≤ 480px)
+   ============================================================ */
+@media (max-width: 480px) {
+  .about-hero {
+    padding: 22px 0 26px;
+  }
+
+  .about-hero__title {
+    font-size: 22px;
+  }
+  .about-hero__badge {
+    font-size: 12px;
+    padding: 6px 11px;
+  }
+
+  .about-page-wrapper {
+    padding-top: 24px;
+    padding-bottom: 48px;
+  }
+
+  .about-article {
+    padding: 22px 16px 22px;
+    border-radius: 14px;
+  }
+
+  .about-article h2:first-of-type::before {
+    left: -16px;
+    right: -16px;
+  }
+
+  .about-article p {
+    font-size: 14.5px;
+  }
+  .about-article h2 {
+    font-size: 17px;
+  }
+
+  .about-social__icon {
+    width: 40px;
+    height: 40px;
+  }
+  .about-social__icon i {
+    font-size: 16px;
+  }
+}

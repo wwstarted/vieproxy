@@ -163,6 +163,10 @@
     </button>
 </div>
 
+<button class="back-to-top" id="backToTop" aria-label="Về đầu trang">
+    <i class="fa-solid fa-chevron-up"></i>
+</button>
+
 
 <!-- Scripts -->
 <?php wp_footer(); ?>

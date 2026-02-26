@@ -93,6 +93,22 @@ $company_zalo = '034.770.0437';
                 </div>
             </aside>
 
+            <!-- ── Mobile TOC (hiện ≤1024px, ẩn desktop) ── -->
+            <div class="info-toc-mobile" id="infoTocMobile">
+                <button class="info-toc-mobile__toggle" id="infoTocToggle" aria-expanded="false"
+                    aria-controls="infoTocMobileContent">
+                    <span class="info-toc-mobile__toggle-left">
+                        <i class="fa-solid fa-list-ul"></i>
+                        Mục lục
+                    </span>
+                    <i class="fa-solid fa-chevron-down info-toc-mobile__arrow"></i>
+                </button>
+                <div class="info-toc-mobile__content" id="infoTocMobileContent">
+
+
+                </div>
+            </div>
+
             <!-- ── Main Article ──────────────────────── -->
             <article class="info-page-content" id="infoPageContent">
 
@@ -462,9 +478,6 @@ $company_zalo = '034.770.0437';
 
 </main>
 
-<!-- Back to Top Button -->
-<button class="info-back-to-top" id="backToTop" aria-label="Về đầu trang">
-    <i class="fa-solid fa-chevron-up"></i>
-</button>
+
 
 <?php get_footer(); ?>

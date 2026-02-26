@@ -142,31 +142,6 @@
   }
 
   /* ────────────────────────────────────────────────────────
-     3. BACK TO TOP BUTTON
-  ─────────────────────────────────────────────────────── */
-  function initBackToTop() {
-    var btn = qs("#backToTop");
-    if (!btn) return;
-
-    var showThreshold = 400;
-
-    function onScroll() {
-      if (window.pageYOffset > showThreshold) {
-        btn.classList.add("is-visible");
-      } else {
-        btn.classList.remove("is-visible");
-      }
-    }
-
-    window.addEventListener("scroll", onScroll, { passive: true });
-    onScroll();
-
-    btn.addEventListener("click", function () {
-      window.scrollTo({ top: 0, behavior: "smooth" });
-    });
-  }
-
-  /* ────────────────────────────────────────────────────────
      4. INITIAL SECTION from URL hash
   ─────────────────────────────────────────────────────── */
   function initHashScroll() {
@@ -181,43 +156,6 @@
         target.getBoundingClientRect().top + window.pageYOffset - offset;
       window.scrollTo({ top: top, behavior: "smooth" });
     }, 300);
-  }
-
-  /* ────────────────────────────────────────────────────────
-     5. READING PROGRESS BAR
-  ─────────────────────────────────────────────────────── */
-  function initProgressBar() {
-    if (qs("#infoReadingProgress") || qs("#contactReadingProgress")) return;
-
-    var bar = document.createElement("div");
-    bar.id = "infoReadingProgress";
-    bar.style.cssText = [
-      "position: fixed",
-      "top: 0",
-      "left: 0",
-      "height: 3px",
-      "width: 0%",
-      "background: linear-gradient(90deg, #4facf7 0%, #007bf3 100%)",
-      "z-index: 9999",
-      "transition: width 0.1s ease",
-      "pointer-events: none",
-    ].join(";");
-    document.body.appendChild(bar);
-
-    var content = qs(".info-page-content");
-
-    function updateProgress() {
-      if (!content) return;
-
-      var docH = document.documentElement.scrollHeight;
-      var winH = window.innerHeight;
-      var scrolled = window.pageYOffset;
-      var pct = Math.min(100, Math.round((scrolled / (docH - winH)) * 100));
-      bar.style.width = pct + "%";
-    }
-
-    window.addEventListener("scroll", updateProgress, { passive: true });
-    updateProgress();
   }
 
   /* ────────────────────────────────────────────────────────
@@ -327,6 +265,38 @@
   }
 
   /* ────────────────────────────────────────────────────────
+   8. MOBILE TOC TOGGLE (≤1024px)
+─────────────────────────────────────────────────────── */
+  function initMobileToc() {
+    var tocMobile = qs(".info-toc-mobile");
+    var toggle = qs(".info-toc-mobile__toggle");
+    var mobileContent = qs(".info-toc-mobile__content");
+
+    if (!tocMobile || !toggle || !mobileContent) return;
+
+    var sidebarNav = qs(".info-page-toc .info-toc__nav");
+    if (sidebarNav && mobileContent.children.length === 0) {
+      var clonedNav = sidebarNav.cloneNode(true);
+      mobileContent.appendChild(clonedNav);
+    }
+
+    // ── Toggle open/close ──
+    toggle.addEventListener("click", function () {
+      var isOpen = tocMobile.classList.toggle("is-open");
+      this.setAttribute("aria-expanded", isOpen ? "true" : "false");
+    });
+
+    // ── Đóng khi click link ──
+    var links = qsa(".info-toc-mobile .info-toc__link");
+    links.forEach(function (link) {
+      link.addEventListener("click", function () {
+        tocMobile.classList.remove("is-open");
+        toggle.setAttribute("aria-expanded", "false");
+      });
+    });
+  }
+
+  /* ────────────────────────────────────────────────────────
      INIT
   ─────────────────────────────────────────────────────── */
   function init() {
@@ -334,11 +304,10 @@
 
     initSmoothScroll();
     initTocHighlight();
-    initBackToTop();
     initHashScroll();
-    initProgressBar();
     initSectionAnimations();
     initCardAnimations();
+    initMobileToc();
   }
 
   if (document.readyState === "loading") {
