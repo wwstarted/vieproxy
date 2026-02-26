@@ -87,10 +87,6 @@
       updatePrice();
     }
 
-    // ================================
-    // TABLE OF CONTENTS GENERATOR
-    // ================================
-
     const $tocList = $("#single-product-toc-list");
     const $shortDesc = $(".single-product-short-description-content");
 
@@ -155,7 +151,6 @@
           });
         });
       } else {
-        // No headings found, hide TOC
         $(".single-product-toc").hide();
       }
     }
@@ -165,7 +160,6 @@
     // ================================
 
     $(".single-product-widget-btn-cart").on("click", function () {
-      // TODO: Implement add to cart with custom pricing
       alert("Add to cart functionality - Coming soon!");
     });
   });

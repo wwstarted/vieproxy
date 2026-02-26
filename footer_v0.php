@@ -127,7 +127,6 @@
 
 </footer>
 
-
 <div class="speed-dial" id="speedDial" role="region" aria-label="Liên hệ nhanh">
 
     <a href="mailto:support@vieproxy.vn" class="speed-dial__child speed-dial__child--email"
@@ -162,7 +161,6 @@
         </span>
     </button>
 </div>
-
 
 <!-- Scripts -->
 <?php wp_footer(); ?>

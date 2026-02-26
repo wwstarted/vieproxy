@@ -110,6 +110,21 @@ function vieproxy_theme_enqueue_assets()
         );
     }
 
+    wp_enqueue_style(
+        'speed-dial',
+        get_template_directory_uri() . '/css/speed-dial.css',
+        array(),
+        filemtime(get_stylesheet_directory() . '/css/speed-dial.css')
+    );
+
+    wp_enqueue_script(
+        'speed-dial',
+        get_template_directory_uri() . '/js/speed-dial.js',
+        array(),
+        filemtime(get_template_directory() . '/js/speed-dial.js'),
+        true
+    );
+
 }
 add_action('wp_enqueue_scripts', 'vieproxy_theme_enqueue_assets');
 

@@ -1,0 +1,310 @@
+/* ============================================================
+   SPEED DIAL — Global Contact Widget
+   ============================================================ */
+
+/* ── Variables  ────────── */
+:root {
+  --sd-size: 48px;
+  --sd-size-child: 44px;
+  --sd-radius: 96px;
+  --sd-bottom: 32px;
+  --sd-right: 32px;
+  --sd-shadow: 0 4px 16px rgba(0, 123, 243, 0.38);
+  --sd-shadow-hover: 0 6px 22px rgba(0, 123, 243, 0.52);
+  --sd-transition: 0.32s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+/* ============================================================
+   CONTAINER
+   ============================================================ */
+.speed-dial {
+  position: fixed;
+  bottom: var(--sd-bottom);
+  right: var(--sd-right);
+  width: var(--sd-size);
+  height: var(--sd-size);
+  z-index: 995;
+}
+
+/* ============================================================
+   MAIN BUTTON
+   ============================================================ */
+.speed-dial__main {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  width: var(--sd-size);
+  height: var(--sd-size);
+  border-radius: 50%;
+  background: linear-gradient(135deg, #4facf7 0%, #007bf3 100%);
+  color: #fff;
+  border: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: var(--sd-shadow);
+  transition:
+    box-shadow 0.2s ease,
+    transform 0.2s ease;
+  z-index: 2;
+  overflow: hidden;
+  outline: none;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.speed-dial__main:hover {
+  box-shadow: var(--sd-shadow-hover);
+  transform: scale(1.08);
+}
+
+.speed-dial__main:focus-visible {
+  outline: 3px solid rgba(0, 123, 243, 0.45);
+  outline-offset: 3px;
+}
+
+/* ── Icon layers inside main button ── */
+.speed-dial__icon {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 19px;
+  transition:
+    opacity 0.22s ease,
+    transform 0.22s ease;
+}
+
+/* Cycling icon: visible by default */
+.speed-dial__icon--cycle {
+  opacity: 1;
+  transform: scale(1);
+}
+
+/* Close icon: hidden by default */
+.speed-dial__icon--close {
+  opacity: 0;
+  transform: rotate(-90deg) scale(0.6);
+}
+
+/* When open: swap visibility */
+.speed-dial.is-open .speed-dial__icon--cycle {
+  opacity: 0;
+  transform: rotate(90deg) scale(0.6);
+}
+
+.speed-dial.is-open .speed-dial__icon--close {
+  opacity: 1;
+  transform: rotate(0deg) scale(1);
+}
+
+/* ── Pulse ring animation ── */
+.speed-dial__main::after {
+  content: "";
+  position: absolute;
+  inset: -4px;
+  border-radius: 50%;
+  border: 2px solid rgba(79, 172, 247, 0.55);
+  animation: sdPulse 2.8s ease-out infinite;
+  pointer-events: none;
+}
+
+.speed-dial.is-open .speed-dial__main::after {
+  animation: none;
+  opacity: 0;
+}
+
+@keyframes sdPulse {
+  0% {
+    transform: scale(1);
+    opacity: 0.8;
+  }
+  70% {
+    transform: scale(1.55);
+    opacity: 0;
+  }
+  100% {
+    transform: scale(1.55);
+    opacity: 0;
+  }
+}
+
+/* ============================================================
+   CHILD BUTTONS
+   ============================================================ */
+.speed-dial__child {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  width: var(--sd-size-child);
+  height: var(--sd-size-child);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 17px;
+  color: #fff;
+  text-decoration: none;
+  box-shadow: 0 3px 12px rgba(0, 0, 0, 0.22);
+
+  opacity: 0;
+  transform: translate(0, 0) scale(0);
+  pointer-events: none;
+  transition:
+    transform var(--sd-transition),
+    opacity 0.22s ease,
+    box-shadow 0.2s ease;
+  z-index: 1;
+  -webkit-tap-highlight-color: transparent;
+}
+
+/* ── Arc positions — Desktop (r = 96px)
+   Email  180°: (-96,   0)
+   FB     150°: (-83, -48)   cos(30°)=0.866 → 96*0.866≈83  sin(30°)=0.5 → 96*0.5=48
+   Zalo   120°: (-48, -83)   cos(60°)=0.5   → 96*0.5=48    sin(60°)=0.866 → 96*0.866≈83
+   TG      90°: (  0, -96)
+   Khoảng cách giữa 2 button liền kề = 2×96×sin(15°) ≈ 49.7px > 44px (child size) ✓
+── */
+.speed-dial.is-open .speed-dial__child {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.speed-dial.is-open .speed-dial__child--email {
+  transform: translate(-96px, 0) scale(1);
+  transition-delay: 0s;
+}
+
+.speed-dial.is-open .speed-dial__child--fb {
+  transform: translate(-83px, -48px) scale(1);
+  transition-delay: 0.05s;
+}
+
+.speed-dial.is-open .speed-dial__child--zalo {
+  transform: translate(-48px, -83px) scale(1);
+  transition-delay: 0.1s;
+}
+
+.speed-dial.is-open .speed-dial__child--tg {
+  transform: translate(0, -96px) scale(1);
+  transition-delay: 0.15s;
+}
+
+.speed-dial .speed-dial__child--tg {
+  transition-delay: 0s;
+}
+.speed-dial .speed-dial__child--zalo {
+  transition-delay: 0.04s;
+}
+.speed-dial .speed-dial__child--fb {
+  transition-delay: 0.08s;
+}
+.speed-dial .speed-dial__child--email {
+  transition-delay: 0.12s;
+}
+
+.speed-dial.is-open .speed-dial__child--email {
+  transition-delay: 0s;
+}
+.speed-dial.is-open .speed-dial__child--fb {
+  transition-delay: 0.05s;
+}
+.speed-dial.is-open .speed-dial__child--zalo {
+  transition-delay: 0.1s;
+}
+.speed-dial.is-open .speed-dial__child--tg {
+  transition-delay: 0.15s;
+}
+
+.speed-dial__child:hover {
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.3);
+  filter: brightness(1.1);
+}
+
+.speed-dial__child--email {
+  background: linear-gradient(135deg, #4facf7, #007bf3);
+}
+
+.speed-dial__child--fb {
+  background: linear-gradient(135deg, #1877f2, #0d65d9);
+}
+
+.speed-dial__child--zalo {
+  background: linear-gradient(135deg, #0068ff, #004ecc);
+}
+
+.speed-dial__child--tg {
+  background: linear-gradient(135deg, #2ca5e0, #0088cc);
+}
+
+.speed-dial__icon--cycle i {
+  transition:
+    opacity 0.22s ease,
+    transform 0.22s ease;
+}
+
+.speed-dial__icon--cycle i.is-fading {
+  opacity: 0;
+  transform: scale(0.5);
+}
+
+@media (max-width: 1024px) {
+  .speed-dial.is-open .speed-dial__child--email {
+    transform: translate(-90px, 0) scale(1);
+  }
+  .speed-dial.is-open .speed-dial__child--fb {
+    transform: translate(-78px, -45px) scale(1);
+  }
+  .speed-dial.is-open .speed-dial__child--zalo {
+    transform: translate(-45px, -78px) scale(1);
+  }
+  .speed-dial.is-open .speed-dial__child--tg {
+    transform: translate(0, -90px) scale(1);
+  }
+}
+
+@media (max-width: 768px) {
+  :root {
+    --sd-size: 44px;
+    --sd-size-child: 40px;
+    --sd-bottom: 20px;
+    --sd-right: 20px;
+  }
+
+  .speed-dial__main {
+    font-size: 17px;
+  }
+
+  .speed-dial__icon {
+    font-size: 17px;
+  }
+
+  .speed-dial__child {
+    font-size: 15px;
+  }
+
+  /* Mobile arc (r = 82px) */
+  .speed-dial.is-open .speed-dial__child--email {
+    transform: translate(-82px, 0) scale(1);
+  }
+  .speed-dial.is-open .speed-dial__child--fb {
+    transform: translate(-71px, -41px) scale(1);
+  }
+  .speed-dial.is-open .speed-dial__child--zalo {
+    transform: translate(-41px, -71px) scale(1);
+  }
+  .speed-dial.is-open .speed-dial__child--tg {
+    transform: translate(0, -82px) scale(1);
+  }
+}
+
+/* ============================================================
+   RESPONSIVE — SMALL MOBILE (≤ 480px)
+   ============================================================ */
+@media (max-width: 480px) {
+  :root {
+    --sd-bottom: 20px;
+    --sd-right: 18px;
+  }
+}
