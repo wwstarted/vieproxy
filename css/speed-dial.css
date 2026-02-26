@@ -7,7 +7,7 @@
   --sd-size: 48px;
   --sd-size-child: 44px;
   --sd-radius: 96px;
-  --sd-bottom: 32px;
+  --sd-bottom: 92px;
   --sd-right: 32px;
   --sd-shadow: 0 4px 16px rgba(0, 123, 243, 0.38);
   --sd-shadow-hover: 0 6px 22px rgba(0, 123, 243, 0.52);
@@ -268,7 +268,7 @@
   :root {
     --sd-size: 44px;
     --sd-size-child: 40px;
-    --sd-bottom: 20px;
+    --sd-bottom: 84px;
     --sd-right: 20px;
   }
 
@@ -304,7 +304,7 @@
    ============================================================ */
 @media (max-width: 480px) {
   :root {
-    --sd-bottom: 20px;
+    --sd-bottom: px;
     --sd-right: 18px;
   }
 }

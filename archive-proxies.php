@@ -55,7 +55,7 @@ $args = [
     'order' => $order,
 ];
 
-// Category filter 
+// Category filter
 if ($selected_category !== 'all' && !empty($selected_category)) {
     $args['tax_query'] = [
         [
@@ -99,13 +99,11 @@ function vp_filter_url($params = [])
 // ── Collect all products for price sort (chỉ khi sort theo giá) ──
 $all_products_data = [];
 if ($products_query->have_posts()) {
-
     if (in_array($sort_by, ['price-low', 'price-high'])) {
         $all_args = $args;
         $all_args['posts_per_page'] = -1;
         $all_args['paged'] = 1;
         unset($all_args['s']);
-
     }
 }
 
@@ -185,13 +183,13 @@ if (empty($hero_desc)) {
                                     'proxy_s' => !empty($search_term) ? $search_term : null,
                                 ]);
                                 ?>
-                        <a href="<?php echo esc_url($cat_url); ?>"
-                            class="filter-option-v2 <?php echo $is_active ? 'active' : ''; ?>"
-                            data-category="<?php echo esc_attr($slug); ?>">
-                            <i class="fa-solid <?php echo esc_attr($icon); ?>"></i>
-                            <span><?php echo esc_html($cat->name); ?></span>
-                        </a>
-                        <?php
+                                <a href="<?php echo esc_url($cat_url); ?>"
+                                    class="filter-option-v2 <?php echo $is_active ? 'active' : ''; ?>"
+                                    data-category="<?php echo esc_attr($slug); ?>">
+                                    <i class="fa-solid <?php echo esc_attr($icon); ?>"></i>
+                                    <span><?php echo esc_html($cat->name); ?></span>
+                                </a>
+                                <?php
                             endforeach;
                         endif; ?>
                     </div>
@@ -207,7 +205,7 @@ if (empty($hero_desc)) {
 
                     <!-- Giữ lại category khi search -->
                     <?php if ($selected_category !== 'all'): ?>
-                    <input type="hidden" name="category" value="<?php echo esc_attr($selected_category); ?>">
+                        <input type="hidden" name="category" value="<?php echo esc_attr($selected_category); ?>">
                     <?php endif; ?>
 
                     <div class="product-controls__left">
@@ -287,6 +285,53 @@ if (empty($hero_desc)) {
                             $price_usd = $default_qty * $monthly_price * $months;
                             $price_vnd = $price_usd * 25000;
 
+                            // ── Features — 4-tier fallback (giống home pricing section) ──
+                            $features = [];
+
+                            // Tier 1: vieproxy_get_product_meta → $meta['features']
+                            if (function_exists('vieproxy_get_product_meta')) {
+                                $vp_meta = vieproxy_get_product_meta($product_id);
+                                $features = $vp_meta['features'] ?? [];
+                            }
+
+                            // Tier 2: _vieproxy_product_highlights (post meta)
+                            if (empty($features)) {
+                                $highlights = get_post_meta($product_id, '_vieproxy_product_highlights', true);
+                                if (!empty($highlights) && is_array($highlights)) {
+                                    $features = array_values(
+                                        array_filter(array_map('sanitize_text_field', $highlights))
+                                    );
+                                }
+                            }
+
+                            // Tier 3: WooCommerce product attributes (tối đa 3)
+                            if (empty($features)) {
+                                $_product = wc_get_product($product_id);
+                                if ($_product) {
+                                    $count = 0;
+                                    foreach ($_product->get_attributes() as $attr) {
+                                        if ($count >= 3)
+                                            break;
+                                        $attr_name = wc_attribute_label($attr->get_name());
+                                        $terms = $attr->get_terms();
+                                        $attr_value = $terms ? implode(', ', wp_list_pluck($terms, 'name')) : '';
+                                        if (empty($attr_value))
+                                            continue;
+                                        $features[] = $attr_name . ': ' . $attr_value;
+                                        $count++;
+                                    }
+                                }
+                            }
+
+                            // Tier 4: Static fallback
+                            if (empty($features)) {
+                                $features = [
+                                    'Kết nối ổn định, tốc độ cao',
+                                    'Hỗ trợ HTTP, SOCKS5',
+                                    'Hỗ trợ 24/7',
+                                ];
+                            }
+
                             $page_products[] = compact(
                                 'product_id',
                                 'product_name',
@@ -295,7 +340,8 @@ if (empty($hero_desc)) {
                                 'price_usd',
                                 'price_vnd',
                                 'default_qty',
-                                'unit_label'
+                                'unit_label',
+                                'features'
                             );
                         endwhile;
                         wp_reset_postdata();
@@ -309,62 +355,62 @@ if (empty($hero_desc)) {
 
                         foreach ($page_products as $p):
                             ?>
-                    <a href="<?php echo esc_url($p['product_url']); ?>" class="product-card-v2"
-                        data-product-id="<?php echo esc_attr($p['product_id']); ?>">
+                            <a href="<?php echo esc_url($p['product_url']); ?>" class="product-card-v2"
+                                data-product-id="<?php echo esc_attr($p['product_id']); ?>">
 
-                        <div class="product-logo-v2">
-                            <img src="<?php echo esc_url($p['thumb_url']); ?>"
-                                alt="<?php echo esc_attr($p['product_name']); ?>" />
-                        </div>
-
-                        <h3 class="product-name-v2"><?php echo esc_html($p['product_name']); ?></h3>
-
-                        <ul class="pricing-card__features">
-                            <li class="pricing-card__feature">
-                                <i class="fa-solid fa-circle-check"></i>
-                                <span>Kết nối ổn định, tốc độ cao</span>
-                            </li>
-                            <li class="pricing-card__feature">
-                                <i class="fa-solid fa-circle-check"></i>
-                                <span>Hỗ trợ HTTP, SOCKS5</span>
-                            </li>
-                            <li class="pricing-card__feature">
-                                <i class="fa-solid fa-circle-check"></i>
-                                <span>Windows, Mac, Linux</span>
-                            </li>
-                        </ul>
-
-                        <div class="product-info-grid-v2">
-                            <div class="product-price-col-v2">
-                                <div class="price-amount-v2">
-                                    <?php echo number_format($p['price_usd'], 0, ',', '.'); ?>$
+                                <div class="product-logo-v2">
+                                    <img src="<?php echo esc_url($p['thumb_url']); ?>"
+                                        alt="<?php echo esc_attr($p['product_name']); ?>" />
                                 </div>
-                                <div class="price-package-v2">
-                                    /<?php echo esc_html($p['default_qty'] . ' ' . $p['unit_label']); ?>
-                                </div>
-                            </div>
-                            <div class="product-action-col-v2">
-                                <span class="product-detail-btn">Chi tiết</span>
-                            </div>
-                        </div>
 
-                    </a>
-                    <?php
+                                <h3 class="product-name-v2"><?php echo esc_html($p['product_name']); ?></h3>
+
+                                <ul class="pricing-card__features">
+                                    <?php foreach (array_slice($p['features'], 0, 3) as $feat):
+                                        $feat_text = is_array($feat)
+                                            ? ($feat['text'] ?? $feat['title'] ?? '')
+                                            : $feat;
+                                        if (empty($feat_text))
+                                            continue;
+                                        ?>
+                                        <li class="pricing-card__feature">
+                                            <i class="fa-solid fa-circle-check"></i>
+                                            <span><?php echo esc_html($feat_text); ?></span>
+                                        </li>
+                                    <?php endforeach; ?>
+                                </ul>
+
+                                <div class="product-info-grid-v2">
+                                    <div class="product-price-col-v2">
+                                        <div class="price-amount-v2">
+                                            <?php echo number_format($p['price_usd'], 0, ',', '.'); ?>$
+                                        </div>
+                                        <div class="price-package-v2">
+                                            /<?php echo esc_html($p['default_qty'] . ' ' . $p['unit_label']); ?>
+                                        </div>
+                                    </div>
+                                    <div class="product-action-col-v2">
+                                        <span class="product-detail-btn">Chi tiết</span>
+                                    </div>
+                                </div>
+
+                            </a>
+                            <?php
                         endforeach;
 
                     else: ?>
-                    <div class="no-products-v2">
-                        <p>Không tìm thấy sản phẩm nào.</p>
-                    </div>
+                        <div class="no-products-v2">
+                            <p>Không tìm thấy sản phẩm nào.</p>
+                        </div>
                     <?php endif; ?>
                 </div>
 
                 <!-- ── Pagination (SSR) ── -->
                 <?php if ($products_query->max_num_pages > 1): ?>
-                <div class="pagination-v2">
+                    <div class="pagination-v2">
 
-                    <!-- Prev -->
-                    <?php if ($paged > 1):
+                        <!-- Prev -->
+                        <?php if ($paged > 1):
                             $prev_args = ['paged' => $paged - 1];
                             if ($selected_category !== 'all')
                                 $prev_args['category'] = $selected_category;
@@ -373,17 +419,17 @@ if (empty($hero_desc)) {
                             if ($sort_by !== 'bestseller')
                                 $prev_args['sort'] = $sort_by;
                             ?>
-                    <a href="<?php echo esc_url(add_query_arg($prev_args)); ?>" class="pagination-btn">
-                        <i class="fa-solid fa-chevron-left"></i>
-                    </a>
-                    <?php else: ?>
-                    <button class="pagination-btn" disabled>
-                        <i class="fa-solid fa-chevron-left"></i>
-                    </button>
-                    <?php endif; ?>
+                            <a href="<?php echo esc_url(add_query_arg($prev_args)); ?>" class="pagination-btn">
+                                <i class="fa-solid fa-chevron-left"></i>
+                            </a>
+                        <?php else: ?>
+                            <button class="pagination-btn" disabled>
+                                <i class="fa-solid fa-chevron-left"></i>
+                            </button>
+                        <?php endif; ?>
 
-                    <!-- Page numbers -->
-                    <?php
+                        <!-- Page numbers -->
+                        <?php
                         $big = 999999999;
                         $pagination_args = [
                             'base' => str_replace($big, '%#%', esc_url(get_pagenum_link($big))),
@@ -412,8 +458,8 @@ if (empty($hero_desc)) {
                                 $is_current = strpos($link, 'current') !== false;
                                 $is_dots = strpos($link, 'dots') !== false;
                                 if ($is_dots): ?>
-                    <span class="pagination-ellipsis">...</span>
-                    <?php else:
+                                    <span class="pagination-ellipsis">...</span>
+                                <?php else:
                                     $class = $is_current ? 'pagination-btn active' : 'pagination-btn';
                                     $custom = preg_replace('/class=["\']page-numbers[^"\']*["\']/', 'class="' . $class . '"', $link);
                                     echo $custom;
@@ -422,8 +468,8 @@ if (empty($hero_desc)) {
                         endif;
                         ?>
 
-                    <!-- Next -->
-                    <?php if ($paged < $products_query->max_num_pages):
+                        <!-- Next -->
+                        <?php if ($paged < $products_query->max_num_pages):
                             $next_args = ['paged' => $paged + 1];
                             if ($selected_category !== 'all')
                                 $next_args['category'] = $selected_category;
@@ -432,16 +478,16 @@ if (empty($hero_desc)) {
                             if ($sort_by !== 'bestseller')
                                 $next_args['sort'] = $sort_by;
                             ?>
-                    <a href="<?php echo esc_url(add_query_arg($next_args)); ?>" class="pagination-btn">
-                        <i class="fa-solid fa-chevron-right"></i>
-                    </a>
-                    <?php else: ?>
-                    <button class="pagination-btn" disabled>
-                        <i class="fa-solid fa-chevron-right"></i>
-                    </button>
-                    <?php endif; ?>
+                            <a href="<?php echo esc_url(add_query_arg($next_args)); ?>" class="pagination-btn">
+                                <i class="fa-solid fa-chevron-right"></i>
+                            </a>
+                        <?php else: ?>
+                            <button class="pagination-btn" disabled>
+                                <i class="fa-solid fa-chevron-right"></i>
+                            </button>
+                        <?php endif; ?>
 
-                </div>
+                    </div>
                 <?php endif; ?>
 
             </section>
@@ -483,12 +529,12 @@ if (empty($hero_desc)) {
                                 'proxy_s' => !empty($search_term) ? $search_term : null,
                             ]);
                             ?>
-                    <a href="<?php echo esc_url($cat_url); ?>"
-                        class="filter-option-v2 <?php echo $is_active ? 'active' : ''; ?>">
-                        <i class="fa-solid <?php echo esc_attr($icon); ?>"></i>
-                        <span><?php echo esc_html($cat->name); ?></span>
-                    </a>
-                    <?php
+                            <a href="<?php echo esc_url($cat_url); ?>"
+                                class="filter-option-v2 <?php echo $is_active ? 'active' : ''; ?>">
+                                <i class="fa-solid <?php echo esc_attr($icon); ?>"></i>
+                                <span><?php echo esc_html($cat->name); ?></span>
+                            </a>
+                            <?php
                         endforeach;
                     endif; ?>
                 </div>
@@ -514,10 +560,10 @@ if (empty($hero_desc)) {
                             'proxy_s' => !empty($search_term) ? $search_term : null,
                         ]);
                         ?>
-                    <a href="<?php echo esc_url($sort_url); ?>"
-                        class="filter-sort-link <?php echo ($sort_by === $val) ? 'active' : ''; ?>">
-                        <?php echo esc_html($label); ?>
-                    </a>
+                        <a href="<?php echo esc_url($sort_url); ?>"
+                            class="filter-sort-link <?php echo ($sort_by === $val) ? 'active' : ''; ?>">
+                            <?php echo esc_html($label); ?>
+                        </a>
                     <?php endforeach; ?>
                 </div>
             </div>
