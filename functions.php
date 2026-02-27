@@ -166,7 +166,12 @@ function vieproxy_theme_enqueue_assets()
 
     if (is_page_template('page-about.php')) {
 
-        wp_enqueue_style('info-pages-style', get_template_directory_uri() . '/css/info-pages.css', [], '1.0.0');
+        wp_enqueue_style(
+            'info-pages-style',
+            get_template_directory_uri() . '/css/info-pages.css',
+            [],
+            filemtime(get_stylesheet_directory() . '/css/info-pages.css')
+        );
 
         wp_enqueue_style(
             'vieproxy-about',
@@ -174,15 +179,23 @@ function vieproxy_theme_enqueue_assets()
             ['info-pages-style'],
             filemtime(get_stylesheet_directory() . '/css/about.css')
         );
+
+        wp_enqueue_script(
+            'info-pages-script',
+            get_template_directory_uri() . '/js/info-pages.js',
+            [],
+            filemtime(get_template_directory() . '/js/info-pages.js'),
+            true
+        );
+
         wp_enqueue_script(
             'vieproxy-about',
             get_template_directory_uri() . '/js/about.js',
-            [],
+            ['info-pages-script'],
             filemtime(get_template_directory() . '/js/about.js'),
             true
         );
     }
-
 }
 add_action('wp_enqueue_scripts', 'vieproxy_theme_enqueue_assets');
 

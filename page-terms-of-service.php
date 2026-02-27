@@ -28,8 +28,8 @@ $company_zalo = '034.770.0437';
             <!-- Hero body -->
             <div class="info-page-hero__inner">
                 <!-- <div class="info-page-hero__icon">
-                    <i class="fa-solid fa-file-contract"></i>
-                </div> -->
+                        <i class="fa-solid fa-file-contract"></i>
+                    </div> -->
 
                 <div class="info-page-hero__content">
                     <h1 class="info-page-hero__title">Điều Khoản Dịch Vụ</h1>
@@ -56,8 +56,8 @@ $company_zalo = '034.770.0437';
     </section>
 
     <!-- ═══════════════════════════════════════════════
-         MAIN CONTENT LAYOUT
-    ════════════════════════════════════════════════ -->
+            MAIN CONTENT LAYOUT
+        ════════════════════════════════════════════════ -->
     <div class="wrapper info-page-wrapper">
         <div class="info-page-layout">
 
