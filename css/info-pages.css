@@ -215,8 +215,18 @@
   top: 100px;
   max-height: calc(100vh - 120px);
   overflow-y: auto;
-  scrollbar-width: thin;
-  scrollbar-color: #d1d5db transparent;
+  /* scrollbar-width: thin;
+  scrollbar-color: #d1d5db transparent; */
+
+  /* Ẩn scrollbar Firefox */
+  scrollbar-width: none;
+
+  /* Ẩn scrollbar IE */
+  -ms-overflow-style: none;
+}
+
+.info-page-toc::-webkit-scrollbar {
+  display: none;
 }
 
 .info-page-toc::-webkit-scrollbar {
@@ -279,7 +289,7 @@
 .info-toc__link.is-active {
   color: var(--info-primary);
   background: #edf5ff;
-  border-left-color: var(--info-primary);
+  /* border-left-color: var(--info-primary); */
   font-weight: 600;
 }
 
@@ -383,8 +393,8 @@
   font-weight: 700;
   color: var(--info-primary);
   margin: 28px 0 12px;
-  padding-left: 14px;
-  border-left: 3px solid var(--info-primary-light);
+  /* padding-left: 14px;
+  border-left: 3px solid var(--info-primary-light); */
 }
 
 .info-section p {

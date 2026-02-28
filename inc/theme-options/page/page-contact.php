@@ -25,7 +25,6 @@ function vieproxy_enqueue_contact_assets()
         '1.0.0'
     );
 
-    // info-pages.js handles back-to-top + reading progress
     wp_enqueue_script(
         'vieproxy-info-pages',
         get_template_directory_uri() . '/js/info-pages.js',
@@ -45,9 +44,6 @@ function vieproxy_enqueue_contact_assets()
 add_action('wp_enqueue_scripts', 'vieproxy_enqueue_contact_assets');
 
 
-/* ── AJAX Handler — Contact Form Submit ───────────────────── */
-
-// Both logged-in and guest users
 add_action('wp_ajax_vieproxy_contact_submit', 'vieproxy_handle_contact_form');
 add_action('wp_ajax_nopriv_vieproxy_contact_submit', 'vieproxy_handle_contact_form');
 
