@@ -1,6 +1,6 @@
 /* ============================================================
-   INFO PAGES — CHÍNH SÁCH BẢO MẬT & ĐIỀU KHOẢN DỊCH VỤ
-   ============================================================ */
+    INFO PAGES — CHÍNH SÁCH BẢO MẬT & ĐIỀU KHOẢN DỊCH VỤ
+    ============================================================ */
 
 /* ── CSS Variables ───────────────────── */
 :root {
@@ -24,9 +24,9 @@
 }
 
 /* ============================================================
-   PAGE HERO  — breadcrumb now lives INSIDE the hero
-   Same structural pattern as .proxy-hero (archive proxies)
-   ============================================================ */
+    PAGE HERO  — breadcrumb now lives INSIDE the hero
+    Same structural pattern as .proxy-hero (archive proxies)
+    ============================================================ */
 
 .info-page-hero {
   background: linear-gradient(135deg, #eef6ff 0%, #f5f9ff 60%, #ffffff 100%);
@@ -185,8 +185,8 @@
 }
 
 /* ============================================================
-   PAGE WRAPPER & LAYOUT
-   ============================================================ */
+    PAGE WRAPPER & LAYOUT
+    ============================================================ */
 
 .info-page-wrapper {
   padding-top: 48px;
@@ -207,8 +207,8 @@
 }
 
 /* ============================================================
-   TOC SIDEBAR
-   ============================================================ */
+    TOC SIDEBAR
+    ============================================================ */
 
 .info-page-toc {
   position: sticky;
@@ -216,7 +216,7 @@
   max-height: calc(100vh - 120px);
   overflow-y: auto;
   /* scrollbar-width: thin;
-  scrollbar-color: #d1d5db transparent; */
+    scrollbar-color: #d1d5db transparent; */
 
   /* Ẩn scrollbar Firefox */
   scrollbar-width: none;
@@ -337,8 +337,8 @@
 }
 
 /* ============================================================
-   MAIN CONTENT AREA
-   ============================================================ */
+    MAIN CONTENT AREA
+    ============================================================ */
 
 .info-page-content {
   min-width: 0;
@@ -394,7 +394,7 @@
   color: var(--info-primary);
   margin: 28px 0 12px;
   /* padding-left: 14px;
-  border-left: 3px solid var(--info-primary-light); */
+    border-left: 3px solid var(--info-primary-light); */
 }
 
 .info-section p {
@@ -458,6 +458,7 @@
   color: #10b981;
   left: 4px;
   top: 3px;
+  display: none;
 }
 
 .info-list strong {
@@ -638,15 +639,16 @@
 }
 
 .info-table thead {
-  background: linear-gradient(135deg, #4facf7 0%, #007bf3 100%);
+  background: #f3f4f6;
+  border-bottom: 2px solid #e5e7eb;
 }
 
 .info-table thead th {
-  padding: 15px 20px;
+  padding: 13px 20px;
   text-align: left;
   font-size: 13.5px;
-  font-weight: 600;
-  color: #ffffff;
+  font-weight: 700;
+  color: #1f2937;
   white-space: nowrap;
 }
 
@@ -656,7 +658,6 @@
 .info-table thead th:last-child {
   border-top-right-radius: 14px;
 }
-
 .info-table tbody tr {
   border-bottom: 1px solid #f3f4f6;
   transition: background 0.15s;
@@ -707,8 +708,8 @@
 /* ── Contact Grid ────────────────────────────────────────── */
 .info-contact-grid {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 16px;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 14px;
   margin: 20px 0;
 }
 
@@ -747,6 +748,10 @@
 }
 .info-contact-card__icon--zalo {
   background: linear-gradient(135deg, #0068ff 0%, #004ecc 100%);
+}
+
+.info-contact-card__icon--fb {
+  background: linear-gradient(135deg, #1877f2 0%, #0d5fc7 100%);
 }
 
 .info-contact-card__icon i {
@@ -822,8 +827,8 @@
 }
 
 /* ============================================================
-   MOBILE TOC (≤1024px) 
-   ============================================================ */
+    MOBILE TOC (≤1024px) 
+    ============================================================ */
 .info-toc-mobile {
   display: none;
   background: #f0f7ff;
@@ -907,8 +912,8 @@
 }
 
 /* ============================================================
-   RESPONSIVE — TABLET (≤ 1024px)
-   ============================================================ */
+    RESPONSIVE — TABLET (≤ 1024px)
+    ============================================================ */
 
 @media (max-width: 1024px) {
   .info-page-hero {
@@ -928,7 +933,6 @@
     gap: 0;
   }
 
-  /* ── Ẩn sidebar TOC, hiện mobile TOC ── */
   .info-page-toc {
     display: none;
   }
@@ -945,15 +949,14 @@
     grid-template-columns: repeat(3, 1fr);
   }
 
-  /* Contact grid: 3 → 2 */
   .info-contact-grid {
     grid-template-columns: repeat(2, 1fr);
   }
 }
 
 /* ============================================================
-   RESPONSIVE — MOBILE (≤ 768px)
-   ============================================================ */
+    RESPONSIVE — MOBILE (≤ 768px)
+    ============================================================ */
 
 @media (max-width: 768px) {
   .info-page-hero {
@@ -1012,10 +1015,10 @@
     font-size: 19px;
   }
 
-  /* Contact grid: 2 → 1 */
+  /* Contact grid: tablet 2×2 → mobile 2×2 */
   .info-contact-grid {
-    grid-template-columns: 1fr;
-    gap: 12px;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px;
   }
 
   /* Nav buttons */
@@ -1051,8 +1054,8 @@
 }
 
 /* ============================================================
-   RESPONSIVE — SMALL MOBILE (≤ 480px)
-   ============================================================ */
+    RESPONSIVE — SMALL MOBILE (≤ 480px)
+    ============================================================ */
 
 @media (max-width: 480px) {
   .info-page-hero {
@@ -1097,5 +1100,124 @@
   .info-toc__link {
     font-size: 11.5px;
     padding: 6px 11px;
+  }
+
+  .info-contact-grid {
+    grid-template-columns: 1fr;
+    gap: 10px;
+  }
+}
+
+/*  fix feedback */
+
+.info-section__heading {
+  border-bottom: none;
+}
+
+.info-section h2 {
+  font-size: 30px;
+}
+
+.info-section__num {
+  width: 40px;
+  height: 40px;
+  font-size: 13px;
+  border-radius: 10px;
+}
+
+.info-section__heading {
+  margin-bottom: 20px;
+  padding-bottom: 0;
+}
+
+.info-list li::before {
+  display: none;
+}
+
+.info-list li {
+  padding-left: 0;
+}
+
+.info-list--check li::before {
+  display: inline-block;
+}
+
+.info-list--check li {
+  padding-left: 0px;
+}
+
+.info-section h3 {
+  color: #1a1a1a;
+}
+
+/* 4-col contact grid: compact card padding */
+.info-contact-card {
+  padding: 14px 12px;
+  gap: 10px;
+}
+
+.info-contact-card__body strong {
+  font-size: 13px;
+}
+
+.info-contact-card__body span {
+  font-size: 12px;
+}
+
+@media (max-width: 768px) {
+  .info-contact-card {
+    padding: 14px 14px;
+    gap: 12px;
+  }
+}
+
+/* ── Cards grid không có icon ──────────────────────────── */
+.info-cards-grid--no-icon .info-card {
+  padding: 18px 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.info-cards-grid--no-icon .info-card h4 {
+  font-size: 14px;
+  font-weight: 700;
+  /* color: var(--info-primary); */
+  color: black;
+  margin: 0;
+  padding-bottom: 6px;
+  border-bottom: 1.5px solid #dddddd;
+}
+
+.info-cards-grid--no-icon .info-card p {
+  font-size: 13.5px;
+  color: var(--info-text-mid);
+  line-height: 1.6;
+  margin: 0;
+}
+
+/* Responsive tablet */
+@media (max-width: 1024px) {
+  .info-cards-grid--no-icon {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+/* Responsive mobile */
+@media (max-width: 768px) {
+  .info-cards-grid--no-icon {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 12px;
+  }
+
+  .info-cards-grid--no-icon .info-card {
+    padding: 14px 16px;
+  }
+}
+
+/* Responsive small mobile */
+@media (max-width: 480px) {
+  .info-cards-grid--no-icon {
+    grid-template-columns: 1fr;
   }
 }

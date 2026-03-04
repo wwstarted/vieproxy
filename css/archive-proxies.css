@@ -833,3 +833,25 @@
     font-size: 13px;
   }
 }
+
+/* fix responsive mobile issues */
+
+@media (max-width: 768px) {
+  .product-container-v2 {
+    padding-top: 20px;
+    padding-bottom: 40px;
+  }
+
+  .product-header-v2 {
+    margin-bottom: 20px;
+  }
+
+  .products-section-v2 {
+    gap: 20px;
+  }
+
+  .product-controls {
+    gap: 8px;
+    margin-bottom: 0;
+  }
+}

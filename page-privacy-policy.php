@@ -27,9 +27,9 @@ $company_zalo = '034.770.0437';
 
             <!-- Hero body -->
             <div class="info-page-hero__inner">
-                <!-- <div class="info-page-hero__icon">
+                <div class="info-page-hero__icon">
                     <i class="fa-solid fa-shield-halved"></i>
-                </div> -->
+                </div>
                 <div class="info-page-hero__content">
                     <h1 class="info-page-hero__title">Chính Sách Bảo Mật</h1>
                     <p class="info-page-hero__subtitle">
@@ -130,12 +130,12 @@ $company_zalo = '034.770.0437';
                         điều khoản
                         được nêu trong chính sách này.
                     </p>
-                    <div class="info-highlight-box info-highlight-box--blue">
+                    <!-- <div class="info-highlight-box info-highlight-box--blue">
                         <i class="fa-solid fa-circle-info"></i>
                         <p>Chính sách này áp dụng cho tất cả người dùng dịch vụ <?php echo esc_html($company_name); ?>,
                             bao gồm
                             website, API, ứng dụng và các dịch vụ liên quan khác.</p>
-                    </div>
+                    </div> -->
                 </section>
 
                 <!-- Section 2 -->
@@ -166,12 +166,12 @@ $company_zalo = '034.770.0437';
                             hóa.</li>
                     </ul>
 
-                    <div class="info-highlight-box info-highlight-box--green">
+                    <!-- <div class="info-highlight-box info-highlight-box--green">
                         <i class="fa-solid fa-shield-check"></i>
                         <p><strong><?php echo esc_html($company_name); ?> không ghi lại nội dung lưu lượng
                                 proxy</strong> — chúng tôi chỉ ghi lại
                             metadata kết nối (thời gian, lượng dữ liệu sử dụng) cần thiết cho việc quản lý dịch vụ.</p>
-                    </div>
+                    </div> -->
                 </section>
 
                 <!-- Section 3 -->
@@ -182,34 +182,34 @@ $company_zalo = '034.770.0437';
                     </div>
                     <p>Thông tin thu thập được sử dụng cho các mục đích sau:</p>
 
-                    <div class="info-cards-grid">
+                    <div class="info-cards-grid info-cards-grid--no-icon">
                         <div class="info-card">
-                            <div class="info-card__icon"><i class="fa-solid fa-server"></i></div>
+                            <!-- <div class="info-card__icon"><i class="fa-solid fa-server"></i></div> -->
                             <h4>Cung cấp dịch vụ</h4>
                             <p>Xử lý đơn hàng, kích hoạt proxy, quản lý tài khoản và giao hàng dịch vụ đúng hạn.</p>
                         </div>
                         <div class="info-card">
-                            <div class="info-card__icon"><i class="fa-solid fa-headset"></i></div>
+                            <!-- <div class="info-card__icon"><i class="fa-solid fa-headset"></i></div> -->
                             <h4>Hỗ trợ khách hàng</h4>
                             <p>Phản hồi yêu cầu hỗ trợ, giải quyết tranh chấp và cải thiện trải nghiệm người dùng.</p>
                         </div>
                         <div class="info-card">
-                            <div class="info-card__icon"><i class="fa-solid fa-chart-line"></i></div>
+                            <!-- <div class="info-card__icon"><i class="fa-solid fa-chart-line"></i></div> -->
                             <h4>Cải thiện dịch vụ</h4>
                             <p>Phân tích dữ liệu sử dụng để tối ưu hóa hiệu suất, phát triển tính năng mới.</p>
                         </div>
                         <div class="info-card">
-                            <div class="info-card__icon"><i class="fa-solid fa-bell"></i></div>
+                            <!-- <div class="info-card__icon"><i class="fa-solid fa-bell"></i></div> -->
                             <h4>Thông báo & Marketing</h4>
                             <p>Gửi thông báo dịch vụ, khuyến mãi (bạn có thể hủy đăng ký bất kỳ lúc nào).</p>
                         </div>
                         <div class="info-card">
-                            <div class="info-card__icon"><i class="fa-solid fa-shield-halved"></i></div>
+                            <!-- <div class="info-card__icon"><i class="fa-solid fa-shield-halved"></i></div> -->
                             <h4>Bảo mật & Phòng chống gian lận</h4>
                             <p>Phát hiện và ngăn chặn hoạt động gian lận, bảo vệ hệ thống và người dùng khác.</p>
                         </div>
                         <div class="info-card">
-                            <div class="info-card__icon"><i class="fa-solid fa-scale-balanced"></i></div>
+                            <!-- <div class="info-card__icon"><i class="fa-solid fa-scale-balanced"></i></div> -->
                             <h4>Tuân thủ pháp lý</h4>
                             <p>Đáp ứng các nghĩa vụ pháp lý, yêu cầu của cơ quan nhà nước có thẩm quyền.</p>
                         </div>
@@ -249,11 +249,11 @@ $company_zalo = '034.770.0437';
                             thông tin người dùng có thể được chuyển giao cùng với thông báo trước.
                         </li>
                     </ul>
-                    <div class="info-highlight-box info-highlight-box--yellow">
+                    <!-- <div class="info-highlight-box info-highlight-box--yellow">
                         <i class="fa-solid fa-triangle-exclamation"></i>
                         <p>Chúng tôi yêu cầu tất cả đối tác bên thứ ba duy trì mức độ bảo mật dữ liệu tương đương với
                             tiêu chuẩn của <?php echo esc_html($company_name); ?>.</p>
-                    </div>
+                    </div> -->
                 </section>
 
                 <!-- Section 5 -->
@@ -449,6 +449,16 @@ $company_zalo = '034.770.0437';
                             <div class="info-contact-card__body">
                                 <strong>Zalo</strong>
                                 <span><?php echo esc_html($company_zalo); ?></span>
+                            </div>
+                        </a>
+                        <a href="https://fb.com/VieProxyVN" target="_blank" rel="noopener noreferrer"
+                            class="info-contact-card">
+                            <div class="info-contact-card__icon info-contact-card__icon--fb">
+                                <i class="fa-brands fa-facebook-f"></i>
+                            </div>
+                            <div class="info-contact-card__body">
+                                <strong>Facebook</strong>
+                                <span>VieProxyVN</span>
                             </div>
                         </a>
                     </div>

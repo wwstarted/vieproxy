@@ -523,6 +523,16 @@ $company_zalo = '034.770.0437';
                                 <span><?php echo esc_html($company_zalo); ?></span>
                             </div>
                         </a>
+                        <a href="https://fb.com/VieProxyVN" target="_blank" rel="noopener noreferrer"
+                            class="info-contact-card">
+                            <div class="info-contact-card__icon info-contact-card__icon--fb">
+                                <i class="fa-brands fa-facebook-f"></i>
+                            </div>
+                            <div class="info-contact-card__body">
+                                <strong>Facebook</strong>
+                                <span>VieProxyVN</span>
+                            </div>
+                        </a>
                     </div>
 
                     <p style="margin-top: 24px;">
