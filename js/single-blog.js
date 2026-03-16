@@ -6,7 +6,6 @@
   "use strict";
 
   document.addEventListener("DOMContentLoaded", function () {
-    // ── 1. AUTO-GENERATE TOC từ H2/H3 trong article ──────────
     const articleBody = document.getElementById("articleBody");
     const tocList = document.getElementById("tocList");
     const tocListMobile = document.getElementById("tocListMobile");
@@ -16,7 +15,6 @@
       const tocItems = [];
 
       headings.forEach(function (heading, index) {
-        // Gán ID nếu chưa có
         if (!heading.id) {
           const slugBase = heading.textContent
             .trim()
@@ -135,9 +133,6 @@
       });
     }
 
-    // ── 4. FAQ ACCORDION
-    // Dùng đúng classes của reference: .blog-faq-question / .active-faq
-    // ─────────────────────────────────────────────────────────────────
     const faqQuestions = document.querySelectorAll(".blog-faq-question");
 
     faqQuestions.forEach(function (question) {
@@ -145,14 +140,12 @@
         const faqItem = this.closest(".blog-faq-item");
         const isOpen = faqItem.classList.contains("active-faq");
 
-        // Đóng tất cả item đang mở
         document
           .querySelectorAll(".blog-faq-item.active-faq")
           .forEach(function (item) {
             item.classList.remove("active-faq");
           });
 
-        // Mở item được click nếu trước đó chưa mở
         if (!isOpen) {
           faqItem.classList.add("active-faq");
         }

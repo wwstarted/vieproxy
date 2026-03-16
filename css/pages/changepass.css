@@ -1,0 +1,145 @@
+/* ── Password input wrapper ──────────────────────────────────────────────── */
+
+.pw-wrap {
+  position: relative;
+}
+
+.pw-wrap .form-input {
+  padding-right: 44px;
+}
+
+.pw-toggle {
+  position: absolute;
+  right: 12px;
+  top: 50%;
+  transform: translateY(-50%);
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: #aaa;
+  font-size: 15px;
+  padding: 4px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: color 0.2s ease;
+}
+
+.pw-toggle:hover {
+  color: var(--primary-color, #0175e9);
+}
+
+.pw-strength {
+  margin-top: 10px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.pw-strength-bar {
+  flex: 1;
+  height: 5px;
+  background: #eee;
+  border-radius: 3px;
+  overflow: hidden;
+}
+
+.pw-strength-fill {
+  height: 100%;
+  width: 0%;
+  border-radius: 3px;
+  transition:
+    width 0.3s ease,
+    background-color 0.3s ease;
+}
+
+.pw-strength-fill[data-level="1"] {
+  background: #ef4444;
+  width: 25%;
+}
+.pw-strength-fill[data-level="2"] {
+  background: #f59e0b;
+  width: 50%;
+}
+.pw-strength-fill[data-level="3"] {
+  background: #10b981;
+  width: 75%;
+}
+.pw-strength-fill[data-level="4"] {
+  background: #059669;
+  width: 100%;
+}
+
+.pw-strength-label {
+  font-size: 12px;
+  font-weight: 600;
+  flex-shrink: 0;
+  min-width: 60px;
+}
+
+.pw-strength-label[data-level="1"] {
+  color: #ef4444;
+}
+.pw-strength-label[data-level="2"] {
+  color: #f59e0b;
+}
+.pw-strength-label[data-level="3"] {
+  color: #10b981;
+}
+.pw-strength-label[data-level="4"] {
+  color: #059669;
+}
+
+.pw-rules {
+  list-style: none;
+  margin: 10px 0 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 5px 16px;
+}
+
+.pw-rule {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 12.5px;
+  color: #bbb;
+  transition: color 0.2s ease;
+}
+
+.pw-rule i {
+  font-size: 13px;
+  flex-shrink: 0;
+  transition: color 0.2s ease;
+}
+
+.pw-rule.is-valid {
+  color: #10b981;
+}
+
+.pw-rule.is-valid i {
+  color: #10b981;
+}
+
+.pw-rule i.fa-circle-xmark {
+  display: inline-block;
+}
+.pw-rule i.fa-circle-check {
+  display: none;
+}
+
+.pw-rule.is-valid i.fa-circle-xmark {
+  display: none;
+}
+.pw-rule.is-valid i.fa-circle-check {
+  display: inline-block;
+}
+
+/* ── Responsive ─────────────────────────────────────────────────────────── */
+
+@media (max-width: 480px) {
+  .pw-rules {
+    grid-template-columns: 1fr;
+  }
+}

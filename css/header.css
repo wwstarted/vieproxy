@@ -8,13 +8,14 @@
   position: sticky;
   top: 0;
   z-index: 1000;
+  box-shadow: 0 8px 16px -6px rgb(0 0 0 / 10%);
 }
 
 .header-inner {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  height: 64px;
+  height: 75px;
 }
 
 /* ============================================================
@@ -80,7 +81,7 @@
 .header-nav .nav-menu li a:hover,
 .header-nav .nav-menu li.current-menu-item > a,
 .header-nav .nav-menu li.current-menu-ancestor > a {
-  color: var(--primary-color, #007bf3);
+  color: var(--primary-color, #0175e9);
 }
 
 /* Underline hover effect */
@@ -91,7 +92,7 @@
   bottom: -4px;
   width: 0;
   height: 2px;
-  background-color: var(--primary-color, #007bf3);
+  background-color: var(--primary-color, #0175e9);
   border-radius: 2px;
   transition: width 0.25s ease;
 }
@@ -126,7 +127,7 @@
 }
 
 .cart-btn:hover {
-  background-color: var(--primary-color, #007bf3);
+  background-color: var(--primary-color, #0175e9);
   color: #ffffff;
 }
 
@@ -137,7 +138,7 @@
   min-width: 17px;
   height: 17px;
   padding: 0 4px;
-  background-color: var(--primary-color, #007bf3);
+  background-color: var(--primary-color, #0175e9);
   color: #ffffff;
   font-size: 10px;
   font-weight: 700;
@@ -234,11 +235,11 @@
 
 .lang-option:hover {
   background-color: #f4f7fb;
-  color: var(--primary-color, #007bf3);
+  color: var(--primary-color, #0175e9);
 }
 
 .lang-option.lang-active {
-  color: var(--primary-color, #007bf3);
+  color: var(--primary-color, #0175e9);
 }
 
 /* ============================================================
@@ -274,16 +275,16 @@
 }
 
 .btn-login:hover {
-  border-color: var(--primary-color, #007bf3);
-  color: var(--primary-color, #007bf3);
+  border-color: var(--primary-color, #0175e9);
+  color: var(--primary-color, #0175e9);
   background-color: #f0f7ff;
 }
 
 /* Đăng Ký — filled blue */
 .btn-register {
   color: #ffffff;
-  background-color: var(--primary-color, #007bf3);
-  border: 1.5px solid var(--primary-color, #007bf3);
+  background-color: var(--primary-color, #0175e9);
+  border: 1.5px solid var(--primary-color, #0175e9);
 }
 
 .btn-register:hover {
@@ -410,5 +411,439 @@
   .header-cart,
   .header-lang {
     display: none;
+  }
+}
+
+/* ============================================================
+   MOBILE-ONLY EXTRAS — hidden on desktop
+   ============================================================ */
+
+.mobile-cart-row,
+.mobile-lang-row {
+  display: none;
+}
+
+/* ============================================================
+   RESPONSIVE — Mobile cart & language extras
+   ============================================================ */
+
+@media (max-width: 1024px) {
+  /* --- Mobile Cart Row --- */
+  .mobile-cart-row {
+    display: block;
+    border-top: 1px solid #f0f4f8;
+    padding-top: 4px;
+    margin-top: 4px;
+  }
+
+  .mobile-cart-link {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 10px 4px;
+    text-decoration: none;
+    color: var(--text-color, #333);
+    font-size: 15px;
+    font-weight: 500;
+    border-bottom: 1px solid #f0f4f8;
+    transition: color 0.2s ease;
+  }
+
+  .mobile-cart-link:hover {
+    color: var(--primary-color, #0175e9);
+  }
+
+  .mobile-cart-link i {
+    font-size: 16px;
+    width: 20px;
+    text-align: center;
+  }
+
+  /* Inline badge for mobile cart */
+  .cart-badge--inline {
+    position: static;
+    border: none;
+    margin-left: auto;
+    min-width: 20px;
+    height: 20px;
+    padding: 0 5px;
+    font-size: 11px;
+  }
+
+  /* --- Mobile Language Row --- */
+  .mobile-lang-row {
+    display: block;
+    border-top: 1px solid #f0f4f8;
+    padding-top: 4px;
+    margin-top: 4px;
+  }
+
+  .mobile-lang-toggle {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    width: 100%;
+    padding: 10px 4px;
+    background: none;
+    border: none;
+    border-bottom: 1px solid #f0f4f8;
+    cursor: pointer;
+    font-size: 15px;
+    font-weight: 500;
+    color: var(--text-color, #333);
+    text-align: left;
+  }
+
+  .mobile-lang-label {
+    flex: 1;
+  }
+
+  .mobile-lang-arrow {
+    font-size: 10px;
+    color: #666;
+    transition: transform 0.25s ease;
+  }
+
+  .mobile-lang-toggle[aria-expanded="true"] .mobile-lang-arrow {
+    transform: rotate(180deg);
+  }
+
+  .mobile-lang-dropdown {
+    list-style: none;
+    margin: 0;
+    padding: 4px 0 4px 12px;
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.25s ease;
+  }
+
+  .mobile-lang-dropdown.is-open {
+    max-height: 200px;
+  }
+
+  .mobile-lang-dropdown .lang-option {
+    padding: 9px 10px;
+    border-radius: 6px;
+    font-size: 14px;
+  }
+}
+
+/* ============================================================
+   VieProxy Header — Auth Additions
+   Append these rules to your existing header CSS file.
+   ============================================================ */
+
+/* ============================================================
+   USER DROPDOWN — Desktop (logged-in state)
+   ============================================================ */
+
+.vp-user-dropdown {
+  position: relative;
+  align-items: center; /* display:flex set by PHP/JS inline style */
+}
+
+/* Trigger button */
+.vp-user-trigger {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background: none;
+  border: 1.5px solid #e4e8ee;
+  border-radius: 8px;
+  padding: 5px 10px 5px 6px;
+  cursor: pointer;
+  font-family: inherit;
+  white-space: nowrap;
+  transition:
+    border-color 0.2s ease,
+    background-color 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+.vp-user-trigger:hover,
+.vp-user-dropdown.is-open .vp-user-trigger {
+  border-color: var(--primary-color, #0175e9);
+  background-color: #f0f7ff;
+  box-shadow: 0 0 0 3px rgba(1, 117, 233, 0.08);
+}
+
+/* Avatar circle — shared desktop + mobile */
+.vp-avatar {
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #0175e9 0%, #4f9cf9 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.vp-avatar--lg {
+  width: 40px;
+  height: 40px;
+}
+
+.vp-avatar-letter {
+  color: #ffffff;
+  font-size: 12px;
+  font-weight: 700;
+  line-height: 1;
+  text-transform: uppercase;
+  user-select: none;
+}
+
+.vp-avatar--lg .vp-avatar-letter {
+  font-size: 16px;
+}
+
+/* Display name */
+.vp-user-name {
+  font-size: 13.5px;
+  font-weight: 600;
+  color: #222;
+  max-width: 110px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+/* Chevron arrow */
+.vp-user-arrow {
+  font-size: 10px;
+  color: #888;
+  transition: transform 0.25s ease;
+  flex-shrink: 0;
+}
+
+.vp-user-dropdown.is-open .vp-user-arrow {
+  transform: rotate(180deg);
+}
+
+/* ── Dropdown panel ── */
+.vp-user-menu {
+  position: absolute;
+  top: calc(100% + 10px);
+  right: 0;
+  background: #ffffff;
+  border: 1px solid #e4e8ee;
+  border-radius: 10px;
+  box-shadow: 0 8px 28px rgba(0, 0, 0, 0.1);
+  min-width: 210px;
+  padding: 6px;
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(-8px);
+  transition:
+    opacity 0.2s ease,
+    transform 0.2s ease,
+    visibility 0.2s;
+  z-index: 300;
+}
+
+.vp-user-dropdown.is-open .vp-user-menu {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+}
+
+/* Menu item — shared <a> and <button> */
+.vp-menu-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  width: 100%;
+  padding: 9px 12px;
+  border-radius: 7px;
+  border: none;
+  background: none;
+  text-decoration: none;
+  color: #333;
+  font-size: 13.5px;
+  font-weight: 500;
+  font-family: inherit;
+  cursor: pointer;
+  text-align: left;
+  transition:
+    background-color 0.15s ease,
+    color 0.15s ease;
+}
+
+.vp-menu-item:hover {
+  background-color: #f4f7fb;
+  color: var(--primary-color, #0175e9);
+}
+
+.vp-menu-item i {
+  font-size: 15px;
+  width: 18px;
+  text-align: center;
+  color: #999;
+  flex-shrink: 0;
+  transition: color 0.15s ease;
+}
+
+.vp-menu-item:hover i {
+  color: var(--primary-color, #0175e9);
+}
+
+/* Danger variant — Logout */
+.vp-menu-item--danger {
+  color: #dc2626;
+}
+
+.vp-menu-item--danger:hover {
+  background-color: #fef2f2;
+  color: #b91c1c;
+}
+
+.vp-menu-item--danger i {
+  color: #dc2626;
+}
+
+.vp-menu-item--danger:hover i {
+  color: #b91c1c;
+}
+
+/* Divider */
+.vp-menu-divider {
+  height: 1px;
+  background-color: #f0f4f8;
+  margin: 4px 2px;
+}
+
+/* ============================================================
+   FORCE-HIDE RULES
+   - Mobile-only elements: always hidden on desktop
+   - Desktop user dropdown: always hidden on mobile
+   ============================================================ */
+
+/* Desktop → hide mobile-only elements regardless of inline style */
+@media (min-width: 1025px) {
+  .mobile-user-row,
+  .mobile-user-menu {
+    display: none !important;
+  }
+}
+
+/* Mobile → hide desktop user dropdown */
+@media (max-width: 1024px) {
+  .vp-user-dropdown {
+    display: none !important;
+  }
+}
+
+/* ============================================================
+   MOBILE USER SECTION  (≤ 1024px)
+   display is controlled by PHP inline style + JS.
+   CSS only handles layout/style when visible.
+   ============================================================ */
+
+@media (max-width: 1024px) {
+  /* ── User info row ── */
+  .mobile-user-row {
+    /* display: flex set by PHP/JS */
+    align-items: center;
+    gap: 12px;
+    padding: 14px 4px 12px;
+    border-bottom: 1px solid #f0f4f8;
+    margin-bottom: 2px;
+  }
+
+  .mobile-user-details {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+    min-width: 0; /* prevent text overflow issues */
+  }
+
+  .mobile-user-details strong {
+    display: block;
+    font-size: 15px;
+    font-weight: 600;
+    color: #222;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+  .mobile-user-details small {
+    display: block;
+    font-size: 12px;
+    color: #999;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+  /* ── User nav links ── */
+  .mobile-user-menu {
+    /* display: block set by PHP/JS */
+    border-bottom: 1px solid #f0f4f8;
+    padding-bottom: 4px;
+    margin-bottom: 4px;
+  }
+
+  .mobile-nav-link {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    width: 100%;
+    padding: 10px 4px;
+    background: none;
+    border: none;
+    border-bottom: 1px solid #f0f4f8;
+    text-decoration: none;
+    color: var(--text-color, #333);
+    font-size: 15px;
+    font-weight: 500;
+    font-family: inherit;
+    cursor: pointer;
+    text-align: left;
+    transition: color 0.2s ease;
+  }
+
+  .mobile-nav-link:last-child {
+    border-bottom: none;
+  }
+
+  .mobile-nav-link:hover {
+    color: var(--primary-color, #0175e9);
+  }
+
+  .mobile-nav-link i {
+    font-size: 16px;
+    width: 20px;
+    text-align: center;
+    flex-shrink: 0;
+  }
+
+  /* Danger variant — Logout */
+  .mobile-nav-link--danger {
+    color: #dc2626;
+  }
+
+  .mobile-nav-link--danger:hover {
+    color: #b91c1c;
+  }
+
+  /* ── Auth buttons mobile adjustments ── */
+  /* .header-auth already handles flex-direction: column via existing CSS */
+  /* Just add top separator when shown below the nav links */
+  #authButtons {
+    border-top: 1px solid #f0f4f8;
+    padding-top: 8px;
+    margin-top: 4px;
+  }
+}
+
+/* ============================================================
+   SMALL MOBILE — Minor tweaks (≤ 480px)
+   ============================================================ */
+
+@media (max-width: 480px) {
+  /* Slightly smaller name on very small screens */
+  .vp-user-name {
+    max-width: 80px;
   }
 }

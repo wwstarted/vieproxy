@@ -125,8 +125,6 @@ $founded_year = '2022';
                         giá hợp lý — chúng tôi quyết định tự xây dựng hạ tầng và cung cấp dịch vụ trực tiếp
                         đến người dùng, loại bỏ tầng trung gian để tối ưu chi phí.
                     </p>
-
-
                 </section>
 
                 <!-- Section 2: Sứ mệnh & Tầm nhìn -->
@@ -136,11 +134,9 @@ $founded_year = '2022';
                         <h2>Sứ mệnh &amp; Tầm nhìn</h2>
                     </div>
 
+                    <!-- ── Đã bỏ --blue / --light, dùng style đồng nhất no-icon ── -->
                     <div class="about-mission-grid">
-                        <div class="about-mission-card about-mission-card--blue">
-                            <div class="about-mission-card__icon">
-                                <i class="fa-solid fa-bullseye"></i>
-                            </div>
+                        <div class="about-mission-card">
                             <h3>Sứ mệnh</h3>
                             <p>
                                 Democratize quyền truy cập Internet — mang đến cho mọi doanh nghiệp,
@@ -148,10 +144,7 @@ $founded_year = '2022';
                                 an toàn, ổn định và chi phí tối ưu thông qua hạ tầng proxy đẳng cấp quốc tế.
                             </p>
                         </div>
-                        <div class="about-mission-card about-mission-card--light">
-                            <div class="about-mission-card__icon">
-                                <i class="fa-solid fa-eye"></i>
-                            </div>
+                        <div class="about-mission-card">
                             <h3>Tầm nhìn</h3>
                             <p>
                                 Trở thành nền tảng proxy số 1 Đông Nam Á vào năm 2027 — được lựa chọn
@@ -185,43 +178,32 @@ $founded_year = '2022';
                         mọi nhu cầu từ cá nhân đến doanh nghiệp lớn:
                     </p>
 
-                    <div class="info-cards-grid">
+                    <!-- ── Đã bỏ icon, dùng --no-icon style ── -->
+                    <div class="info-cards-grid info-cards-grid--no-icon">
                         <div class="info-card">
-                            <div class="info-card__icon"><i class="fa-solid fa-network-wired"></i></div>
                             <h4>Proxy IPv4 / IPv6</h4>
                             <p>IP tĩnh tốc độ cao, hỗ trợ HTTP và SOCKS5. Lý tưởng cho automation và scraping.</p>
                         </div>
                         <div class="info-card">
-                            <div class="info-card__icon"><i class="fa-solid fa-mobile-screen"></i></div>
                             <h4>Mobile Proxy</h4>
                             <p>IP từ mạng di động thực tế, luân phiên linh hoạt. Vượt qua mọi cơ chế chặn.</p>
                         </div>
                         <div class="info-card">
-                            <div class="info-card__icon"><i class="fa-solid fa-house-signal"></i></div>
                             <h4>Residential Proxy</h4>
                             <p>IP dân cư xác thực từ 190+ quốc gia. Tỷ lệ thành công cao nhất thị trường.</p>
                         </div>
                         <div class="info-card">
-                            <div class="info-card__icon"><i class="fa-solid fa-rotate"></i></div>
                             <h4>Rotating Proxy</h4>
                             <p>Tự động xoay IP theo thời gian hoặc request, phù hợp cho data collection quy mô lớn.</p>
                         </div>
                         <div class="info-card">
-                            <div class="info-card__icon"><i class="fa-solid fa-code"></i></div>
                             <h4>API Proxy</h4>
                             <p>Tích hợp trực tiếp vào ứng dụng qua REST API. Tài liệu đầy đủ và SDK đa ngôn ngữ.</p>
                         </div>
                         <div class="info-card">
-                            <div class="info-card__icon"><i class="fa-solid fa-headset"></i></div>
                             <h4>Dịch vụ tư vấn</h4>
                             <p>Tư vấn chọn loại proxy phù hợp và tối ưu chi phí theo nhu cầu cụ thể của bạn.</p>
                         </div>
-                    </div>
-
-                    <div class="info-highlight-box info-highlight-box--blue" style="margin-top: 24px;">
-                        <i class="fa-solid fa-circle-info"></i>
-                        <p>Không chắc loại proxy nào phù hợp? Liên hệ đội ngũ tư vấn của chúng tôi —
-                            miễn phí và không ràng buộc. Chúng tôi sẽ giúp bạn chọn giải pháp tối ưu nhất.</p>
                     </div>
                 </section>
 
@@ -237,58 +219,18 @@ $founded_year = '2022';
                         ngặt:
                     </p>
 
-                    <div class="about-commitment-list">
-                        <div class="about-commitment-item">
-                            <div class="about-commitment-item__icon">
-                                <i class="fa-solid fa-shield-halved"></i>
-                            </div>
-                            <div class="about-commitment-item__body">
-                                <strong>SLA 99% Uptime</strong>
-                                <p>Downtime theo kế hoạch được thông báo trước 24 giờ. Vượt quá SLA → hoàn tiền theo tỷ
-                                    lệ thực tế.</p>
-                            </div>
-                        </div>
-                        <div class="about-commitment-item">
-                            <div class="about-commitment-item__icon">
-                                <i class="fa-solid fa-bolt"></i>
-                            </div>
-                            <div class="about-commitment-item__body">
-                                <strong>Tốc độ cao lên đến 1Gbps</strong>
-                                <p>Hạ tầng datacenter chuẩn quốc tế, đường truyền quốc tế tối ưu cho proxy Việt Nam và
-                                    toàn cầu.</p>
-                            </div>
-                        </div>
-                        <div class="about-commitment-item">
-                            <div class="about-commitment-item__icon">
-                                <i class="fa-solid fa-rotate"></i>
-                            </div>
-                            <div class="about-commitment-item__body">
-                                <strong>Thay thế IP lỗi trong 24 giờ</strong>
-                                <p>IP bị block hoặc không hoạt động sẽ được thay thế miễn phí, không cần giải thích lý
-                                    do.</p>
-                            </div>
-                        </div>
-                        <div class="about-commitment-item">
-                            <div class="about-commitment-item__icon">
-                                <i class="fa-solid fa-headset"></i>
-                            </div>
-                            <div class="about-commitment-item__body">
-                                <strong>Hỗ trợ 24/7 trong 30 phút</strong>
-                                <p>Thời gian phản hồi trung bình dưới 30 phút qua Telegram và email, kể cả cuối tuần.
-                                </p>
-                            </div>
-                        </div>
-                        <div class="about-commitment-item">
-                            <div class="about-commitment-item__icon">
-                                <i class="fa-solid fa-money-bill-wave"></i>
-                            </div>
-                            <div class="about-commitment-item__body">
-                                <strong>Hoàn tiền 100% trong 72 giờ đầu</strong>
-                                <p>Nếu dịch vụ không đáp ứng kỳ vọng, chúng tôi hoàn tiền toàn bộ — không câu hỏi, không
-                                    rắc rối.</p>
-                            </div>
-                        </div>
-                    </div>
+                    <ul class="info-list info-list--check">
+                        <li><strong>SLA 99% Uptime:</strong> Downtime theo kế hoạch được thông báo trước 24 giờ. Vượt
+                            quá SLA → hoàn tiền theo tỷ lệ thực tế.</li>
+                        <li><strong>Tốc độ cao lên đến 1Gbps:</strong> Hạ tầng datacenter chuẩn quốc tế, đường truyền
+                            quốc tế tối ưu cho proxy Việt Nam và toàn cầu.</li>
+                        <li><strong>Thay thế IP lỗi trong 24 giờ:</strong> IP bị block hoặc không hoạt động sẽ được thay
+                            thế miễn phí, không cần giải thích lý do.</li>
+                        <li><strong>Hỗ trợ 24/7 trong 30 phút:</strong> Thời gian phản hồi trung bình dưới 30 phút qua
+                            Telegram và email, kể cả cuối tuần.</li>
+                        <li><strong>Hoàn tiền 100% trong 72 giờ đầu:</strong> Nếu dịch vụ không đáp ứng kỳ vọng, chúng
+                            tôi hoàn tiền toàn bộ — không câu hỏi, không rắc rối.</li>
+                    </ul>
                 </section>
 
                 <!-- Section 5: Công nghệ & Hạ tầng -->
@@ -302,56 +244,44 @@ $founded_year = '2022';
                         hiệu suất và độ tin cậy cao nhất:
                     </p>
 
+                    <!-- ── Đã bỏ icon, chỉ giữ content div ── -->
                     <div class="about-tech-grid">
                         <div class="about-tech-item">
-                            <i class="fa-solid fa-server"></i>
                             <div>
-                                <strong>Máy chủ đặt tại VN & SG</strong>
+                                <strong>Máy chủ đặt tại VN &amp; SG</strong>
                                 <span>Latency thấp, tốc độ cao cho khu vực Đông Nam Á</span>
                             </div>
                         </div>
                         <div class="about-tech-item">
-                            <i class="fa-solid fa-lock"></i>
                             <div>
                                 <strong>Mã hóa SSL/TLS end-to-end</strong>
                                 <span>Bảo mật toàn bộ lưu lượng kết nối</span>
                             </div>
                         </div>
                         <div class="about-tech-item">
-                            <i class="fa-solid fa-chart-line"></i>
                             <div>
                                 <strong>Giám sát real-time 24/7</strong>
                                 <span>Phát hiện và xử lý sự cố tự động trong vài giây</span>
                             </div>
                         </div>
                         <div class="about-tech-item">
-                            <i class="fa-solid fa-database"></i>
                             <div>
                                 <strong>Sao lưu dữ liệu đa vùng</strong>
                                 <span>Đảm bảo không mất dữ liệu với backup theo lịch</span>
                             </div>
                         </div>
                         <div class="about-tech-item">
-                            <i class="fa-solid fa-code-branch"></i>
                             <div>
                                 <strong>API RESTful chuẩn quốc tế</strong>
                                 <span>Tài liệu đầy đủ, SDK cho Python, Node.js, PHP</span>
                             </div>
                         </div>
                         <div class="about-tech-item">
-                            <i class="fa-solid fa-tower-broadcast"></i>
                             <div>
                                 <strong>BGP Anycast routing</strong>
                                 <span>Định tuyến thông minh, tự động chọn đường truyền tối ưu</span>
                             </div>
                         </div>
-                    </div>
-
-                    <div class="info-highlight-box info-highlight-box--green" style="margin-top: 24px;">
-                        <i class="fa-solid fa-shield-halved"></i>
-                        <p><strong>Chính sách không lưu log:</strong> <?php echo esc_html($company_name); ?> cam kết
-                            không ghi lại nội dung lưu lượng proxy của bạn. Chúng tôi chỉ lưu metadata
-                            kỹ thuật cần thiết cho việc quản lý dịch vụ và tuân thủ pháp luật.</p>
                     </div>
                 </section>
 
@@ -367,39 +297,28 @@ $founded_year = '2022';
                         làm cho Internet trở nên dễ tiếp cận hơn.
                     </p>
 
+                    <!-- ── Đã bỏ emoji div ── -->
                     <div class="about-culture-cards">
                         <div class="about-culture-card">
-                            <div class="about-culture-card__emoji">🚀</div>
-                            <h4>Tốc độ & Hiệu quả</h4>
+                            <h4>Tốc độ &amp; Hiệu quả</h4>
                             <p>Chúng tôi làm việc nhanh, quyết định nhanh và triển khai nhanh. Không quan liêu, không
                                 chờ đợi.</p>
                         </div>
                         <div class="about-culture-card">
-                            <div class="about-culture-card__emoji">🤝</div>
                             <h4>Khách hàng là trung tâm</h4>
                             <p>Mọi quyết định sản phẩm đều bắt đầu từ câu hỏi: "Điều này có thực sự giúp ích cho khách
                                 hàng không?"</p>
                         </div>
                         <div class="about-culture-card">
-                            <div class="about-culture-card__emoji">💡</div>
                             <h4>Học hỏi liên tục</h4>
                             <p>Công nghệ thay đổi mỗi ngày, chúng tôi cũng vậy. Cập nhật, thích nghi và không ngừng cải
                                 thiện.</p>
                         </div>
                         <div class="about-culture-card">
-                            <div class="about-culture-card__emoji">🌏</div>
                             <h4>Tư duy toàn cầu</h4>
                             <p>Sản phẩm Việt Nam, tiêu chuẩn quốc tế. Chúng tôi tự hào là cầu nối cho doanh nghiệp Việt
                                 ra thế giới.</p>
                         </div>
-                    </div>
-
-                    <div class="info-highlight-box info-highlight-box--yellow" style="margin-top: 8px;">
-                        <i class="fa-solid fa-handshake"></i>
-                        <p>Bạn muốn gia nhập đội ngũ? Chúng tôi luôn tìm kiếm những tài năng đam mê công nghệ.
-                            Gửi CV đến <a
-                                href="mailto:<?php echo esc_attr($company_email); ?>"><?php echo esc_html($company_email); ?></a>
-                            với tiêu đề <strong>"[Ứng tuyển] Vị trí bạn quan tâm"</strong>.</p>
                     </div>
                 </section>
 
@@ -414,6 +333,7 @@ $founded_year = '2022';
                         hay chỉ đơn giản là muốn chat — chúng tôi luôn sẵn lòng lắng nghe.
                     </p>
 
+                    <!-- ── Thêm Facebook, 4 cards giống trang chính sách ── -->
                     <div class="info-contact-grid">
                         <a href="mailto:<?php echo esc_attr($company_email); ?>" class="info-contact-card">
                             <div class="info-contact-card__icon">
@@ -440,6 +360,16 @@ $founded_year = '2022';
                             <div class="info-contact-card__body">
                                 <strong>Zalo</strong>
                                 <span><?php echo esc_html($company_zalo); ?></span>
+                            </div>
+                        </a>
+                        <a href="https://fb.com/VieProxyVN" target="_blank" rel="noopener noreferrer"
+                            class="info-contact-card">
+                            <div class="info-contact-card__icon info-contact-card__icon--fb">
+                                <i class="fa-brands fa-facebook-f"></i>
+                            </div>
+                            <div class="info-contact-card__body">
+                                <strong>Facebook</strong>
+                                <span>VieProxyVN</span>
                             </div>
                         </a>
                     </div>

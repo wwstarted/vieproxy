@@ -1,0 +1,649 @@
+/* ============================================================
+   SINGLE PARTNER — VieProxy
+   Match design system: blue theme, wrapper layout
+   ============================================================ */
+
+/* ── Section Layout ───────────────────────────────────────── */
+.single-partner-section {
+  padding: 40px 0 80px;
+  background: #f9fbff;
+  min-height: 70vh;
+}
+
+/* ── Breadcrumb ───────────────────────────────────────────── */
+.single-partner-breadcrumb {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 13.5px;
+  color: #9ca3af;
+  margin-bottom: 28px;
+  flex-wrap: wrap;
+}
+
+.single-partner-breadcrumb a {
+  color: #6b7280;
+  text-decoration: none;
+  transition: color 0.15s ease;
+}
+
+.single-partner-breadcrumb a:hover {
+  color: var(--primary-color, #0175e9);
+}
+
+.single-partner-breadcrumb i {
+  font-size: 10px;
+  color: #d1d5db;
+}
+
+.single-partner-breadcrumb__current {
+  color: var(--primary-color, #0175e9);
+  font-weight: 500;
+}
+
+/* ── Page Title ───────────────────────────────────────────── */
+.single-partner-title {
+  font-size: 38px;
+  font-weight: 750;
+  color: #111827;
+  margin: 0 0 28px;
+  line-height: 1.25;
+}
+
+/* ── Detail Grid ──────────────────────────────────────────── */
+.single-partner-grid {
+  display: grid;
+  grid-template-columns: 1fr 360px;
+  gap: 28px;
+  align-items: start;
+}
+
+/* ── Left Column ──────────────────────────────────────────── */
+.left-col {
+  background: #ffffff;
+  border-radius: 16px;
+  padding: 32px;
+  border: 1px solid #e5e7eb;
+}
+
+/* Tags */
+.single-partner-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 24px;
+}
+
+.single-partner-tag {
+  display: inline-flex;
+  align-items: center;
+  background: #eff6ff;
+  color: var(--primary-color, #0175e9);
+  border: 1px solid #bfdbfe;
+  padding: 5px 14px;
+  border-radius: 20px;
+  font-size: 13px;
+  font-weight: 500;
+}
+
+/* Action buttons */
+.single-partner-actions {
+  display: flex;
+  gap: 12px;
+  margin-bottom: 28px;
+  flex-wrap: wrap;
+}
+
+.sp-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 22px;
+  border-radius: 8px;
+  font-size: 14px;
+  font-weight: 500;
+  text-decoration: none;
+  transition: all 0.2s ease;
+  border: 1.5px solid transparent;
+  cursor: pointer;
+  white-space: nowrap;
+}
+
+.sp-btn--outline {
+  background: #ffffff;
+  color: #374151;
+  border-color: #d1d5db;
+}
+
+.sp-btn--outline:hover {
+  border-color: var(--primary-color, #0175e9);
+  color: var(--primary-color, #0175e9);
+  background: #f0f6ff;
+  text-decoration: none;
+}
+
+.sp-btn--primary {
+  background: var(--primary-color, #0175e9);
+  color: #ffffff;
+  border-color: var(--primary-color, #0175e9);
+}
+
+.sp-btn--primary:hover {
+  background: #0068d0;
+  border-color: #0068d0;
+  color: #ffffff;
+  text-decoration: none;
+  box-shadow: 0 4px 12px rgba(0, 123, 243, 0.3);
+  transform: translateY(-1px);
+}
+
+/* Description — handle raw HTML từ API (inline styles, ul/li, br, emoji img...) */
+.single-partner-description {
+  margin-bottom: 28px;
+}
+
+/* Reset tất cả inline styles từ API content */
+.single-partner-description * {
+  font-family: inherit !important;
+}
+
+/* Paragraphs — bỏ p rỗng */
+.single-partner-description p {
+  font-size: 15.5px;
+  line-height: 1.8;
+  color: #4b5563;
+  margin: 0 0 14px;
+  font-weight: 400 !important;
+}
+
+.single-partner-description p:empty {
+  display: none; /* ẩn p rỗng từ API */
+}
+
+.single-partner-description p:last-child {
+  margin-bottom: 0;
+}
+
+/* Strong / bold */
+.single-partner-description strong,
+.single-partner-description b {
+  color: #111827;
+  font-weight: 650 !important;
+}
+
+/* Tiêu đề tên partner thường được wrap bằng strong/b */
+.single-partner-description p > strong:only-child,
+.single-partner-description p > b:only-child {
+  font-size: 17px;
+  display: block;
+  margin-bottom: 4px;
+}
+
+/* List */
+.single-partner-description ul {
+  list-style: disc;
+  padding-left: 20px;
+  margin: 0 0 18px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.single-partner-description ul li {
+  font-size: 15px;
+  line-height: 1.75;
+  color: #4b5563;
+  font-weight: 400 !important;
+  padding-left: 4px;
+}
+
+/* Xóa br thừa — không thể ẩn hoàn toàn bằng CSS nhưng giảm impact */
+.single-partner-description br {
+  line-height: 0;
+  display: block;
+  content: "";
+  margin: 0;
+}
+
+/* Emoji img từ WordPress (s.w.org) */
+.single-partner-description img.emoji {
+  width: 1em;
+  height: 1em;
+  vertical-align: -0.1em;
+  display: inline;
+  margin: 0 2px 0 0;
+}
+
+/* Link trong content */
+.single-partner-description a {
+  color: var(--primary-color, #0175e9);
+  text-decoration: none;
+  word-break: break-all;
+  font-weight: 500;
+}
+
+.single-partner-description a:hover {
+  text-decoration: underline;
+}
+
+/* Ordered list */
+.single-partner-description ol {
+  padding-left: 20px;
+  margin: 0 0 18px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.single-partner-description ol li {
+  font-size: 15px;
+  line-height: 1.75;
+  color: #4b5563;
+  padding-left: 6px;
+  font-weight: 400 !important;
+}
+
+/* Link box */
+.single-partner-linkbox {
+  background: #f9fafb;
+  border: 1px solid #e5e7eb;
+  border-radius: 10px;
+  padding: 16px 20px;
+}
+
+.single-partner-linkbox__label {
+  font-size: 12px;
+  font-weight: 600;
+  color: #9ca3af;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  margin: 0 0 6px;
+}
+
+.single-partner-linkbox a {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  color: var(--primary-color, #0175e9);
+  font-size: 14px;
+  text-decoration: none;
+  word-break: break-all;
+  transition: color 0.15s ease;
+}
+
+.single-partner-linkbox a:hover {
+  text-decoration: underline;
+  color: #0068d0;
+}
+
+.single-partner-linkbox i {
+  flex-shrink: 0;
+  font-size: 13px;
+}
+
+/* ── Right Sidebar ────────────────────────────────────────── */
+.right-col {
+  position: sticky;
+  top: 90px; /* below sticky header */
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.single-partner-sidebar-card {
+  background: #ffffff;
+  border-radius: 16px;
+  padding: 24px;
+  border: 1px solid #e5e7eb;
+}
+
+/* Logo + name row */
+.single-partner-sidebar__logo-row {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding-bottom: 20px;
+  margin-bottom: 20px;
+  border-bottom: 1px solid #f0f4f8;
+}
+
+.single-partner-sidebar__logo {
+  width: 52px;
+  height: 52px;
+  flex-shrink: 0;
+  border-radius: 10px;
+  border: 1px solid #e5e7eb;
+  background: #f9fafb;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  padding: 6px;
+}
+
+.single-partner-sidebar__logo img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  display: block;
+}
+
+.single-partner-sidebar__name {
+  font-size: 18px;
+  font-weight: 700;
+  color: #111827;
+  margin: 0;
+  line-height: 1.3;
+}
+
+/* Sidebar sections (features_overview) */
+.single-partner-sidebar__section {
+  margin-bottom: 20px;
+}
+
+.single-partner-sidebar__section:last-child {
+  margin-bottom: 0;
+}
+
+.single-partner-sidebar__section-title {
+  font-size: 13px;
+  font-weight: 700;
+  color: #374151;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  margin: 0 0 10px;
+}
+
+.single-partner-sidebar__item {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  padding: 8px 0;
+  font-size: 14px;
+  color: #4b5563;
+  border-bottom: 1px solid #f9fafb;
+}
+
+.single-partner-sidebar__item:last-child {
+  border-bottom: none;
+  padding-bottom: 0;
+}
+
+.single-partner-sidebar__item i {
+  color: var(--primary-color, #0175e9);
+  font-size: 13px;
+  flex-shrink: 0;
+  width: 16px;
+  text-align: center;
+}
+
+/* ── CTA Banner ───────────────────────────────────────────── */
+.single-partner-cta {
+  background: linear-gradient(130deg, #0277ea 0%, #015ab9 100%);
+  border-radius: 20px;
+  padding: 60px 48px;
+  text-align: center;
+  margin-top: 48px;
+  position: relative;
+  overflow: hidden;
+}
+
+.single-partner-cta::before {
+  content: "";
+  position: absolute;
+  top: -80px;
+  right: -80px;
+  width: 300px;
+  height: 300px;
+  background: radial-gradient(
+    circle,
+    rgba(255, 255, 255, 0.1) 0%,
+    transparent 70%
+  );
+  pointer-events: none;
+}
+
+.single-partner-cta::after {
+  content: "";
+  position: absolute;
+  bottom: -60px;
+  left: -60px;
+  width: 220px;
+  height: 220px;
+  background: radial-gradient(
+    circle,
+    rgba(255, 255, 255, 0.07) 0%,
+    transparent 70%
+  );
+  pointer-events: none;
+}
+
+.single-partner-cta__inner {
+  position: relative;
+  z-index: 1;
+}
+
+.single-partner-cta__title {
+  font-size: 30px;
+  font-weight: 700;
+  color: #ffffff;
+  margin: 0 0 12px;
+}
+
+.single-partner-cta__sub {
+  font-size: 16px;
+  color: rgba(255, 255, 255, 0.82);
+  line-height: 1.65;
+  margin: 0 auto 28px;
+  max-width: 500px;
+}
+
+.single-partner-cta__btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 13px 40px;
+  background: #ffffff;
+  color: var(--primary-color, #0175e9);
+  font-size: 15px;
+  font-weight: 700;
+  border-radius: 8px;
+  text-decoration: none;
+  transition: all 0.2s ease;
+}
+
+.single-partner-cta__btn:hover {
+  background: #e8f0fe;
+  transform: translateY(-1px);
+  color: var(--primary-color, #0175e9);
+  text-decoration: none;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+}
+
+/* ── Error state ──────────────────────────────────────────── */
+.single-partner-error {
+  text-align: center;
+  padding: 80px 20px;
+  color: #6b7280;
+}
+
+.single-partner-error i {
+  font-size: 48px;
+  color: #fca5a5;
+  margin-bottom: 16px;
+  display: block;
+}
+
+.single-partner-error h2 {
+  font-size: 22px;
+  font-weight: 600;
+  color: #374151;
+  margin: 0 0 10px;
+}
+
+.single-partner-error p {
+  font-size: 15px;
+  margin: 0 0 24px;
+}
+
+.single-partner-error a {
+  color: var(--primary-color, #0175e9);
+  text-decoration: none;
+  font-weight: 500;
+}
+
+/* ── Skeleton ─────────────────────────────────────────────── */
+.skeleton {
+  background: linear-gradient(90deg, #f0f4f8 25%, #e8eef5 50%, #f0f4f8 75%);
+  background-size: 200% 100%;
+  animation: skeleton-shimmer 1.4s ease infinite;
+  border-radius: 6px;
+}
+
+@keyframes skeleton-shimmer {
+  0% {
+    background-position: 200% 0;
+  }
+  100% {
+    background-position: -200% 0;
+  }
+}
+
+.skeleton--heading {
+  height: 40px;
+  width: 320px;
+  max-width: 100%;
+  margin-bottom: 28px;
+}
+
+.skeleton--tag {
+  height: 28px;
+  width: 90px;
+  border-radius: 14px;
+  margin-bottom: 24px;
+}
+
+.skeleton--btn-row {
+  height: 40px;
+  width: 260px;
+  border-radius: 8px;
+  margin-bottom: 28px;
+}
+
+.skeleton--para {
+  height: 14px;
+  width: 100%;
+  margin-bottom: 10px;
+}
+
+.skeleton--para-short {
+  width: 65%;
+}
+
+.skeleton--linkbox {
+  height: 62px;
+  border-radius: 10px;
+  margin-top: 20px;
+}
+
+.skeleton--logo {
+  width: 52px;
+  height: 52px;
+  border-radius: 10px;
+  flex-shrink: 0;
+}
+
+.skeleton--name {
+  height: 20px;
+  width: 110px;
+  border-radius: 6px;
+}
+
+.skeleton--section-title {
+  height: 13px;
+  width: 130px;
+  border-radius: 4px;
+  margin-bottom: 10px;
+}
+
+.skeleton--item {
+  height: 36px;
+  border-radius: 6px;
+  margin-bottom: 6px;
+}
+
+.skeleton--item-short {
+  width: 70%;
+}
+
+/* ── Fade-in animation ────────────────────────────────────── */
+@keyframes partnerFadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.single-partner-content.is-loaded {
+  animation: partnerFadeIn 0.35s ease both;
+}
+
+/* ── Responsive ───────────────────────────────────────────── */
+@media (max-width: 1024px) {
+  .single-partner-grid {
+    grid-template-columns: 1fr 320px;
+    gap: 24px;
+  }
+}
+
+@media (max-width: 768px) {
+  .single-partner-section {
+    padding: 28px 0 60px;
+  }
+
+  .single-partner-grid {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+
+  /* Sidebar lên trên trên mobile */
+  .right-col {
+    position: static;
+    order: -1;
+  }
+
+  .single-partner-title {
+    font-size: 28px;
+  }
+
+  .left-col {
+    padding: 20px;
+  }
+
+  .single-partner-cta {
+    padding: 40px 24px;
+  }
+
+  .single-partner-cta__title {
+    font-size: 22px;
+  }
+}
+
+@media (max-width: 480px) {
+  .single-partner-actions {
+    flex-direction: column;
+  }
+
+  .sp-btn {
+    width: 100%;
+    justify-content: center;
+  }
+
+  .single-partner-title {
+    font-size: 24px;
+  }
+}

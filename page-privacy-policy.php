@@ -27,9 +27,9 @@ $company_zalo = '034.770.0437';
 
             <!-- Hero body -->
             <div class="info-page-hero__inner">
-                <div class="info-page-hero__icon">
+                <!-- <div class="info-page-hero__icon">
                     <i class="fa-solid fa-shield-halved"></i>
-                </div>
+                </div> -->
                 <div class="info-page-hero__content">
                     <h1 class="info-page-hero__title">Chính Sách Bảo Mật</h1>
                     <p class="info-page-hero__subtitle">

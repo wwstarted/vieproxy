@@ -1,12 +1,13 @@
 #readingProgressBar {
   position: fixed;
-  top: 0;
+  top: 75px;
   left: 0;
   height: 3px;
   width: 0%;
   background: linear-gradient(90deg, #4facf7 0%, #007bf3 100%);
-  z-index: 9999;
-  transition: width 0.1s ease;
+  /* background: linear-gradient(90deg, #ffffff 0%, #93c5fd 100%); */
+  z-index: 999;
   pointer-events: none;
-  border-radius: 0 2px 2px 0;
+
+  will-change: width;
 }

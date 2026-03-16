@@ -27,17 +27,12 @@ $company_zalo = '034.770.0437';
 
             <!-- Hero body -->
             <div class="info-page-hero__inner">
-                <!-- <div class="info-page-hero__icon">
-                        <i class="fa-solid fa-file-contract"></i>
-                    </div> -->
-
                 <div class="info-page-hero__content">
                     <h1 class="info-page-hero__title">Điều Khoản Dịch Vụ</h1>
                     <p class="info-page-hero__subtitle">
                         Vui lòng đọc kỹ các điều khoản và điều kiện này trước khi sử dụng dịch vụ proxy của
                         <?php echo esc_html($company_name); ?>. Việc sử dụng dịch vụ đồng nghĩa với việc bạn chấp nhận
-                        toàn
-                        bộ điều khoản.
+                        toàn bộ điều khoản.
                     </p>
                     <div class="info-page-hero__meta">
                         <span class="info-page-hero__badge">
@@ -55,9 +50,6 @@ $company_zalo = '034.770.0437';
         </div>
     </section>
 
-    <!-- ═══════════════════════════════════════════════
-            MAIN CONTENT LAYOUT
-        ════════════════════════════════════════════════ -->
     <div class="wrapper info-page-wrapper">
         <div class="info-page-layout">
 
@@ -98,7 +90,7 @@ $company_zalo = '034.770.0437';
                 </div>
             </aside>
 
-            <!-- ── Mobile TOC (hiện ≤1024px, ẩn desktop) ── -->
+            <!-- ── Mobile TOC ── -->
             <div class="info-toc-mobile" id="infoTocMobile">
                 <button class="info-toc-mobile__toggle" id="infoTocToggle" aria-expanded="false"
                     aria-controls="infoTocMobileContent">
@@ -116,14 +108,6 @@ $company_zalo = '034.770.0437';
             <!-- ── Main Article ──────────────────────── -->
             <article class="info-page-content" id="infoPageContent">
 
-                <!-- Disclaimer box -->
-                <div class="info-highlight-box info-highlight-box--blue" style="margin-bottom: 40px;">
-                    <i class="fa-solid fa-circle-info"></i>
-                    <p>Bằng cách đăng ký hoặc sử dụng dịch vụ của
-                        <strong><?php echo esc_html($company_name); ?></strong>, bạn xác nhận
-                        rằng bạn đã đọc, hiểu và đồng ý bị ràng buộc bởi các Điều khoản Dịch vụ này.
-                    </p>
-                </div>
 
                 <!-- Section 1 -->
                 <section class="info-section" id="section-1">
@@ -155,19 +139,19 @@ $company_zalo = '034.770.0437';
                         <?php echo esc_html($company_name); ?> cung cấp các dịch vụ proxy bao gồm nhưng không giới hạn:
                     </p>
 
-                    <div class="info-cards-grid info-cards-grid--3col">
+                    <div class="info-cards-grid info-cards-grid--3col info-cards-grid--no-icon">
                         <div class="info-card">
-                            <div class="info-card__icon"><i class="fa-solid fa-network-wired"></i></div>
+                            <!-- <div class="info-card__icon"><i class="fa-solid fa-network-wired"></i></div> -->
                             <h4>Proxy IPv4 / IPv6</h4>
                             <p>Địa chỉ IP tĩnh, băng thông cao, hỗ trợ HTTP và SOCKS5.</p>
                         </div>
                         <div class="info-card">
-                            <div class="info-card__icon"><i class="fa-solid fa-mobile-screen"></i></div>
+                            <!-- <div class="info-card__icon"><i class="fa-solid fa-mobile-screen"></i></div> -->
                             <h4>Mobile Proxy</h4>
                             <p>IP từ mạng di động thực tế, luân phiên linh hoạt.</p>
                         </div>
                         <div class="info-card">
-                            <div class="info-card__icon"><i class="fa-solid fa-house-signal"></i></div>
+
                             <h4>Residential Proxy</h4>
                             <p>IP dân cư xác thực từ hơn 190 quốc gia trên toàn cầu.</p>
                         </div>
@@ -201,11 +185,7 @@ $company_zalo = '034.770.0437';
                         <li><strong>Thông báo xâm phạm:</strong> Nếu bạn nghi ngờ tài khoản bị xâm phạm, hãy thông báo
                             ngay cho chúng tôi.</li>
                     </ul>
-                    <div class="info-highlight-box info-highlight-box--yellow">
-                        <i class="fa-solid fa-triangle-exclamation"></i>
-                        <p><?php echo esc_html($company_name); ?> không chịu trách nhiệm đối với bất kỳ tổn thất nào
-                            phát sinh từ việc bạn không bảo mật thông tin tài khoản.</p>
-                    </div>
+
                 </section>
 
                 <!-- Section 4 -->
@@ -220,55 +200,21 @@ $company_zalo = '034.770.0437';
                         <strong>KHÔNG</strong> sử dụng dịch vụ để:
                     </p>
 
-                    <div class="info-prohibited-list">
-                        <div class="info-prohibited-item">
-                            <i class="fa-solid fa-ban"></i>
-                            <div>
-                                <strong>Vi phạm pháp luật</strong>
-                                <p>Thực hiện bất kỳ hoạt động nào vi phạm pháp luật Việt Nam hoặc pháp luật quốc tế.</p>
-                            </div>
-                        </div>
-                        <div class="info-prohibited-item">
-                            <i class="fa-solid fa-ban"></i>
-                            <div>
-                                <strong>Tấn công mạng</strong>
-                                <p>DDoS, spam, brute force, khai thác lỗ hổng bảo mật, hoặc bất kỳ hình thức tấn công
-                                    mạng nào.</p>
-                            </div>
-                        </div>
-                        <div class="info-prohibited-item">
-                            <i class="fa-solid fa-ban"></i>
-                            <div>
-                                <strong>Nội dung bất hợp pháp</strong>
-                                <p>Truy cập, lưu trữ hoặc phân phối nội dung khiêu dâm trẻ em, tài liệu bạo lực hoặc nội
-                                    dung vi phạm bản quyền.</p>
-                            </div>
-                        </div>
-                        <div class="info-prohibited-item">
-                            <i class="fa-solid fa-ban"></i>
-                            <div>
-                                <strong>Gian lận & Lừa đảo</strong>
-                                <p>Lừa đảo tài chính, đánh cắp danh tính, gian lận quảng cáo hoặc các hoạt động lừa đảo
-                                    khác.</p>
-                            </div>
-                        </div>
-                        <div class="info-prohibited-item">
-                            <i class="fa-solid fa-ban"></i>
-                            <div>
-                                <strong>Vi phạm điều khoản bên thứ ba</strong>
-                                <p>Sử dụng dịch vụ vi phạm điều khoản của các nền tảng bên thứ ba một cách có hại hoặc
-                                    gây thiệt hại cho họ.</p>
-                            </div>
-                        </div>
-                        <div class="info-prohibited-item">
-                            <i class="fa-solid fa-ban"></i>
-                            <div>
-                                <strong>Bán lại trái phép</strong>
-                                <p>Bán lại, nhượng quyền hoặc cấp phép lại dịch vụ mà không có sự chấp thuận bằng văn
-                                    bản của <?php echo esc_html($company_name); ?>.</p>
-                            </div>
-                        </div>
-                    </div>
+                    <!-- ── Đã bỏ info-prohibited-list, dùng info-list thuần ── -->
+                    <ul class="info-list">
+                        <li><strong>Vi phạm pháp luật:</strong> Thực hiện bất kỳ hoạt động nào vi phạm pháp luật Việt
+                            Nam hoặc pháp luật quốc tế.</li>
+                        <li><strong>Tấn công mạng:</strong> DDoS, spam, brute force, khai thác lỗ hổng bảo mật, hoặc bất
+                            kỳ hình thức tấn công mạng nào.</li>
+                        <li><strong>Nội dung bất hợp pháp:</strong> Truy cập, lưu trữ hoặc phân phối nội dung khiêu dâm
+                            trẻ em, tài liệu bạo lực hoặc nội dung vi phạm bản quyền.</li>
+                        <li><strong>Gian lận &amp; Lừa đảo:</strong> Lừa đảo tài chính, đánh cắp danh tính, gian lận
+                            quảng cáo hoặc các hoạt động lừa đảo khác.</li>
+                        <li><strong>Vi phạm điều khoản bên thứ ba:</strong> Sử dụng dịch vụ vi phạm điều khoản của các
+                            nền tảng bên thứ ba một cách có hại hoặc gây thiệt hại cho họ.</li>
+                        <li><strong>Bán lại trái phép:</strong> Bán lại, nhượng quyền hoặc cấp phép lại dịch vụ mà không
+                            có sự chấp thuận bằng văn bản của <?php echo esc_html($company_name); ?>.</li>
+                    </ul>
 
                     <p style="margin-top: 24px;">
                         Vi phạm các điều khoản sử dụng có thể dẫn đến đình chỉ hoặc chấm dứt tài khoản ngay lập tức
@@ -361,11 +307,7 @@ $company_zalo = '034.770.0437';
                         <li><strong>Thay thế IP lỗi:</strong> IP bị block hoặc không hoạt động sẽ được thay thế miễn phí
                             trong vòng 24 giờ.</li>
                     </ul>
-                    <div class="info-highlight-box info-highlight-box--blue">
-                        <i class="fa-solid fa-circle-info"></i>
-                        <p>SLA không áp dụng cho các trường hợp downtime do bất khả kháng như thiên tai, sự cố mạng
-                            Internet quốc tế, hoặc các cuộc tấn công DDoS quy mô lớn.</p>
-                    </div>
+
                 </section>
 
                 <!-- Section 7 -->
@@ -400,19 +342,14 @@ $company_zalo = '034.770.0437';
                         <li><?php echo esc_html($company_name); ?> <strong>không chịu trách nhiệm</strong> về các thiệt
                             hại gián tiếp, ngẫu nhiên, đặc biệt, hậu quả hoặc thiệt hại trừng phạt, kể cả mất dữ liệu,
                             mất doanh thu hoặc mất lợi nhuận.</li>
-                        <li>Tổng trách nhiệm pháp lý của chúng tôi đối với bất kỳ khiếu nại nào sẽ không vượt quá
-                            số tiền bạn đã thanh toán cho dịch vụ trong 30 ngày trước khi phát sinh khiếu nại.</li>
+                        <li>Tổng trách nhiệm pháp lý của chúng tôi đối với bất kỳ khiếu nại nào sẽ không vượt quá số
+                            tiền bạn đã thanh toán cho dịch vụ trong 30 ngày trước khi phát sinh khiếu nại.</li>
                         <li><?php echo esc_html($company_name); ?> không chịu trách nhiệm về cách bạn sử dụng dịch vụ
                             proxy, bao gồm bất kỳ vi phạm pháp luật hoặc điều khoản dịch vụ của bên thứ ba.</li>
-                        <li>Chúng tôi không đảm bảo dịch vụ không có lỗi, không bị gián đoạn, hoặc phù hợp cho
-                            mục đích cụ thể của bạn.</li>
+                        <li>Chúng tôi không đảm bảo dịch vụ không có lỗi, không bị gián đoạn, hoặc phù hợp cho mục đích
+                            cụ thể của bạn.</li>
                     </ul>
-                    <div class="info-highlight-box info-highlight-box--yellow">
-                        <i class="fa-solid fa-triangle-exclamation"></i>
-                        <p>Bạn hoàn toàn chịu trách nhiệm về mọi hoạt động thực hiện qua dịch vụ proxy của
-                            <?php echo esc_html($company_name); ?>.
-                        </p>
-                    </div>
+
                 </section>
 
                 <!-- Section 9 -->
@@ -559,6 +496,5 @@ $company_zalo = '034.770.0437';
     </div>
 
 </main>
-
 
 <?php get_footer(); ?>

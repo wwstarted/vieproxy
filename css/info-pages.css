@@ -1,11 +1,7 @@
-/* ============================================================
-    INFO PAGES — CHÍNH SÁCH BẢO MẬT & ĐIỀU KHOẢN DỊCH VỤ
-    ============================================================ */
-
 /* ── CSS Variables ───────────────────── */
 :root {
-  --info-primary: #007bf3;
-  --info-primary-dark: #0066d6;
+  --info-primary: #0d4ef7;
+  --info-primary-dark: #015ab9;
   --info-primary-light: #4facf7;
   --info-bg-section: linear-gradient(
     145deg,
@@ -22,11 +18,6 @@
   --info-radius-md: 16px;
   --info-radius-lg: 24px;
 }
-
-/* ============================================================
-    PAGE HERO  — breadcrumb now lives INSIDE the hero
-    Same structural pattern as .proxy-hero (archive proxies)
-    ============================================================ */
 
 .info-page-hero {
   background: linear-gradient(135deg, #eef6ff 0%, #f5f9ff 60%, #ffffff 100%);
@@ -54,7 +45,6 @@
   z-index: 0;
 }
 
-/* Terms-page variant: slightly deeper glow */
 .info-page-hero--terms::before {
   background: radial-gradient(
     circle,
@@ -63,12 +53,10 @@
   );
 }
 
-/* Legacy: kept for safety, hidden */
 .info-page-hero__bg {
   display: none;
 }
 
-/* ── Breadcrumb — inside hero (mirrors proxy-hero__breadcrumb) ── */
 .info-page-hero__breadcrumb {
   display: flex;
   align-items: center;
@@ -99,7 +87,6 @@
   font-weight: 500;
 }
 
-/* ── Hero inner row: icon + content ── */
 .info-page-hero__inner {
   position: relative;
   z-index: 1;
@@ -108,7 +95,6 @@
   gap: 28px;
 }
 
-/* Icon circle */
 .info-page-hero__icon {
   flex-shrink: 0;
   width: 76px;
@@ -185,8 +171,8 @@
 }
 
 /* ============================================================
-    PAGE WRAPPER & LAYOUT
-    ============================================================ */
+      PAGE WRAPPER & LAYOUT
+      ============================================================ */
 
 .info-page-wrapper {
   padding-top: 48px;
@@ -207,8 +193,8 @@
 }
 
 /* ============================================================
-    TOC SIDEBAR
-    ============================================================ */
+      TOC SIDEBAR
+      ============================================================ */
 
 .info-page-toc {
   position: sticky;
@@ -216,7 +202,7 @@
   max-height: calc(100vh - 120px);
   overflow-y: auto;
   /* scrollbar-width: thin;
-    scrollbar-color: #d1d5db transparent; */
+      scrollbar-color: #d1d5db transparent; */
 
   /* Ẩn scrollbar Firefox */
   scrollbar-width: none;
@@ -244,7 +230,6 @@
   overflow: hidden;
 }
 
-/* TOC Header */
 .info-toc__header {
   display: flex;
   align-items: center;
@@ -261,7 +246,6 @@
   font-size: 15px;
 }
 
-/* TOC Nav */
 .info-toc__nav {
   display: flex;
   flex-direction: column;
@@ -337,8 +321,8 @@
 }
 
 /* ============================================================
-    MAIN CONTENT AREA
-    ============================================================ */
+      MAIN CONTENT AREA
+      ============================================================ */
 
 .info-page-content {
   min-width: 0;
@@ -394,7 +378,7 @@
   color: var(--info-primary);
   margin: 28px 0 12px;
   /* padding-left: 14px;
-    border-left: 3px solid var(--info-primary-light); */
+      border-left: 3px solid var(--info-primary-light); */
 }
 
 .info-section p {
@@ -458,7 +442,7 @@
   color: #10b981;
   left: 4px;
   top: 3px;
-  display: none;
+  /* display: none; */
 }
 
 .info-list strong {
@@ -576,7 +560,7 @@
 }
 
 /* ── Prohibited List ─────────────────────────────────────── */
-.info-prohibited-list {
+/* .info-prohibited-list {
   display: flex;
   flex-direction: column;
   gap: 14px;
@@ -622,7 +606,7 @@
   color: #7f1d1d;
   line-height: 1.6;
   margin: 0;
-}
+}  */
 
 /* ── Table ───────────────────────────────────────────────── */
 .info-table-wrap {
@@ -684,26 +668,26 @@
   padding: 4px 12px;
   border-radius: 20px;
   font-size: 12px;
-  font-weight: 600;
+  /* font-weight: 600; */
   white-space: nowrap;
 }
 
-.info-badge--blue {
-  background: #dbeafe;
-  color: #1d4ed8;
-}
-.info-badge--green {
-  background: #d1fae5;
-  color: #065f46;
-}
-.info-badge--yellow {
-  background: #fef3c7;
-  color: #92400e;
-}
-.info-badge--gray {
-  background: #f3f4f6;
-  color: #4b5563;
-}
+/* .info-badge--blue {
+    background: #dbeafe;
+    color: #1d4ed8;
+  }
+  .info-badge--green {
+    background: #d1fae5;
+    color: #065f46;
+  }
+  .info-badge--yellow {
+    background: #fef3c7;
+    color: #92400e;
+  }
+  .info-badge--gray {
+    background: #f3f4f6;
+    color: #4b5563;
+  } */
 
 /* ── Contact Grid ────────────────────────────────────────── */
 .info-contact-grid {
@@ -827,8 +811,8 @@
 }
 
 /* ============================================================
-    MOBILE TOC (≤1024px) 
-    ============================================================ */
+      MOBILE TOC (≤1024px) 
+      ============================================================ */
 .info-toc-mobile {
   display: none;
   background: #f0f7ff;
@@ -912,8 +896,8 @@
 }
 
 /* ============================================================
-    RESPONSIVE — TABLET (≤ 1024px)
-    ============================================================ */
+      RESPONSIVE — TABLET (≤ 1024px)
+      ============================================================ */
 
 @media (max-width: 1024px) {
   .info-page-hero {
@@ -955,8 +939,8 @@
 }
 
 /* ============================================================
-    RESPONSIVE — MOBILE (≤ 768px)
-    ============================================================ */
+      RESPONSIVE — MOBILE (≤ 768px)
+      ============================================================ */
 
 @media (max-width: 768px) {
   .info-page-hero {
@@ -1047,15 +1031,14 @@
     font-size: 13px;
   }
 
-  /* Prohibited list */
   .info-prohibited-item {
     padding: 14px 16px;
   }
 }
 
 /* ============================================================
-    RESPONSIVE — SMALL MOBILE (≤ 480px)
-    ============================================================ */
+      RESPONSIVE — SMALL MOBILE (≤ 480px)
+      ============================================================ */
 
 @media (max-width: 480px) {
   .info-page-hero {
@@ -1139,7 +1122,7 @@
 }
 
 .info-list--check li::before {
-  display: inline-block;
+  display: none;
 }
 
 .info-list--check li {
@@ -1203,7 +1186,6 @@
   }
 }
 
-/* Responsive mobile */
 @media (max-width: 768px) {
   .info-cards-grid--no-icon {
     grid-template-columns: repeat(2, 1fr);
@@ -1215,7 +1197,6 @@
   }
 }
 
-/* Responsive small mobile */
 @media (max-width: 480px) {
   .info-cards-grid--no-icon {
     grid-template-columns: 1fr;

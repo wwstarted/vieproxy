@@ -1,0 +1,543 @@
+/* ═══════════════════════════════════════════════
+   VieProxy — Login Page Styles
+   Font: 'Plus Jakarta Sans' (Google Fonts)
+═══════════════════════════════════════════════ */
+
+@import url("https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap");
+
+/* ── Variables ─────────────────────────────── */
+:root {
+  --vp-primary: #0ea5e9;
+  --vp-primary-dark: #0284c7;
+  --vp-primary-glow: rgba(14, 165, 233, 0.25);
+  --vp-surface: #ffffff;
+  --vp-bg: #f0f9ff;
+  --vp-text: #0f172a;
+  --vp-text-muted: #64748b;
+  --vp-border: #e2e8f0;
+  --vp-error: #ef4444;
+  --vp-success: #10b981;
+  --vp-radius: 14px;
+  --vp-shadow-card:
+    0 8px 40px rgba(14, 165, 233, 0.12), 0 2px 8px rgba(0, 0, 0, 0.06);
+  --vp-font: "Plus Jakarta Sans", sans-serif;
+  --vp-transition: 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* ── Reset scoped ──────────────────────────── */
+.vp-login-wrap *,
+.vp-login-wrap *::before,
+.vp-login-wrap *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+/* ── Layout ────────────────────────────────── */
+.vp-login-wrap {
+  font-family: var(--vp-font);
+  min-height: 100vh;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  background: var(--vp-bg);
+}
+
+/* ── Visual Column ─────────────────────────── */
+.vp-login-visual {
+  position: relative;
+  background: linear-gradient(135deg, #0369a1 0%, #0ea5e9 50%, #38bdf8 100%);
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 48px;
+}
+
+.vp-login-visual__inner {
+  position: relative;
+  z-index: 2;
+  width: 100%;
+  max-width: 420px;
+}
+
+/* Animated blobs */
+.vp-login-visual__blob {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(60px);
+  opacity: 0.35;
+  animation: vp-float 8s ease-in-out infinite;
+}
+.vp-login-visual__blob--1 {
+  width: 380px;
+  height: 380px;
+  background: #bae6fd;
+  top: -80px;
+  left: -80px;
+  animation-delay: 0s;
+}
+.vp-login-visual__blob--2 {
+  width: 280px;
+  height: 280px;
+  background: #0c4a6e;
+  bottom: 40px;
+  right: -60px;
+  animation-delay: 3s;
+}
+.vp-login-visual__blob--3 {
+  width: 200px;
+  height: 200px;
+  background: #7dd3fc;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  animation-delay: 6s;
+}
+
+@keyframes vp-float {
+  0%,
+  100% {
+    transform: translateY(0) scale(1);
+  }
+  50% {
+    transform: translateY(-20px) scale(1.06);
+  }
+}
+
+/* ── Logo (visual panel) ───────────────────── */
+.vp-login-logo {
+  margin-bottom: 40px;
+}
+
+/* Logo img từ has_custom_logo() hoặc fallback img */
+.vp-login-logo img,
+.vp-login-logo .custom-logo-link img,
+.vp-login-logo__img {
+  height: 44px;
+  width: auto;
+  display: block;
+  /* Trick: nền đen của ảnh logo biến mất,
+     chỉ còn phần trắng hiển thị trên gradient xanh */
+  mix-blend-mode: screen;
+  /* Tăng độ sáng để logo nổi bật hơn */
+  filter: brightness(1.1);
+}
+
+/* Ẩn link wrapper của the_custom_logo nếu có */
+.vp-login-logo .custom-logo-link {
+  display: inline-block;
+  line-height: 0;
+}
+
+/* ── Logo (mobile card) ────────────────────── */
+.vp-login-card__logo-mobile {
+  display: none;
+  margin-bottom: 24px;
+}
+
+.vp-login-card__logo-mobile img,
+.vp-login-card__logo-mobile .custom-logo-link img,
+.vp-login-card__logo-img {
+  height: 36px;
+  width: auto;
+  display: block;
+  /* Trên nền trắng: dùng multiply để nền trắng của logo (nếu có) biến mất.
+     Logo nền đen + chữ trắng: dùng filter invert để thành đen trên trắng */
+  filter: invert(1) brightness(0.15);
+}
+
+.vp-login-card__logo-mobile .custom-logo-link {
+  display: inline-block;
+  line-height: 0;
+}
+
+/* Headlines */
+.vp-login-visual__title {
+  color: #ffffff;
+  font-size: 38px;
+  font-weight: 800;
+  line-height: 1.2;
+  letter-spacing: -0.5px;
+  margin-bottom: 16px;
+  text-shadow: 0 2px 12px rgba(0, 0, 0, 0.15);
+}
+.vp-login-visual__sub {
+  color: rgba(255, 255, 255, 0.85);
+  font-size: 16px;
+  line-height: 1.6;
+  margin-bottom: 40px;
+}
+
+/* ── Feature list — dot CSS thuần ─────────── */
+.vp-login-features {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.vp-login-features li {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  color: rgba(255, 255, 255, 0.92);
+  font-size: 15px;
+  font-weight: 500;
+  line-height: 1.5;
+}
+
+/* Dot tròn CSS — không cần icon hay emoji */
+.vp-login-features li::before {
+  content: "";
+  flex-shrink: 0;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.95);
+  box-shadow: 0 0 0 3px rgba(255, 255, 255, 0.25);
+}
+
+/* ── Form Column ───────────────────────────── */
+.vp-login-form-col {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 48px 32px;
+  background: var(--vp-bg);
+}
+
+/* ── Card ──────────────────────────────────── */
+.vp-login-card {
+  width: 100%;
+  max-width: 460px;
+  background: var(--vp-surface);
+  border-radius: 24px;
+  padding: 44px 40px;
+  box-shadow: var(--vp-shadow-card);
+  animation: vp-fade-up 0.5s ease both;
+}
+
+@keyframes vp-fade-up {
+  from {
+    opacity: 0;
+    transform: translateY(18px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.vp-login-card__title {
+  font-size: 28px;
+  font-weight: 800;
+  color: var(--vp-text);
+  letter-spacing: -0.4px;
+  margin-bottom: 6px;
+}
+
+.vp-login-card__sub {
+  color: var(--vp-text-muted);
+  font-size: 15px;
+  margin-bottom: 28px;
+}
+
+/* ── Alert ─────────────────────────────────── */
+.vp-alert {
+  border-radius: 10px;
+  padding: 13px 16px;
+  font-size: 14px;
+  font-weight: 500;
+  margin-bottom: 20px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  animation: vp-fade-up 0.25s ease both;
+}
+.vp-alert--error {
+  background: #fef2f2;
+  color: var(--vp-error);
+  border: 1px solid #fecaca;
+}
+.vp-alert--success {
+  background: #ecfdf5;
+  color: var(--vp-success);
+  border: 1px solid #a7f3d0;
+}
+
+/* ── Fields ────────────────────────────────── */
+.vp-field {
+  margin-bottom: 20px;
+}
+
+.vp-field__label {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--vp-text);
+  margin-bottom: 8px;
+  letter-spacing: 0.1px;
+}
+
+.vp-field__label-link {
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--vp-primary);
+  text-decoration: none;
+  transition: color var(--vp-transition);
+}
+.vp-field__label-link:hover {
+  color: var(--vp-primary-dark);
+  text-decoration: underline;
+}
+
+.vp-field__wrap {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.vp-field__icon {
+  position: absolute;
+  left: 14px;
+  color: #94a3b8;
+  display: flex;
+  pointer-events: none;
+  transition: color var(--vp-transition);
+}
+
+.vp-field__input {
+  width: 100%;
+  height: 48px;
+  padding: 0 14px 0 44px;
+  font-family: var(--vp-font);
+  font-size: 15px;
+  color: var(--vp-text);
+  background: #f8fafc;
+  border: 1.5px solid var(--vp-border);
+  border-radius: 10px;
+  outline: none;
+  transition:
+    border-color var(--vp-transition),
+    box-shadow var(--vp-transition),
+    background var(--vp-transition);
+}
+.vp-field__input::placeholder {
+  color: #94a3b8;
+}
+.vp-field__input:focus {
+  background: var(--vp-surface);
+  border-color: var(--vp-primary);
+  box-shadow: 0 0 0 3px var(--vp-primary-glow);
+}
+.vp-field__input:focus + .vp-field__icon,
+.vp-field__wrap:focus-within .vp-field__icon {
+  color: var(--vp-primary);
+}
+.vp-field__input--padded-r {
+  padding-right: 48px;
+}
+.vp-field__input.is-error {
+  border-color: var(--vp-error);
+}
+
+.vp-field__toggle-pass {
+  position: absolute;
+  right: 14px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: #94a3b8;
+  display: flex;
+  padding: 4px;
+  transition: color var(--vp-transition);
+}
+.vp-field__toggle-pass:hover {
+  color: var(--vp-primary);
+}
+
+.vp-field__error {
+  display: block;
+  font-size: 12px;
+  color: var(--vp-error);
+  margin-top: 5px;
+  min-height: 16px;
+}
+
+/* ── reCAPTCHA ─────────────────────────────── */
+.vp-recaptcha-wrap {
+  margin-bottom: 20px;
+}
+.vp-recaptcha-wrap .g-recaptcha {
+  transform-origin: left top;
+}
+
+/* ── Buttons ───────────────────────────────── */
+.vp-btn {
+  width: 100%;
+  height: 50px;
+  border: none;
+  border-radius: 10px;
+  font-family: var(--vp-font);
+  font-size: 15px;
+  font-weight: 700;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  transition: all var(--vp-transition);
+  letter-spacing: 0.2px;
+}
+
+.vp-btn--primary {
+  background: linear-gradient(135deg, #0ea5e9 0%, #0284c7 100%);
+  color: #fff;
+  box-shadow: 0 4px 14px rgba(14, 165, 233, 0.35);
+}
+.vp-btn--primary:hover:not(:disabled) {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(14, 165, 233, 0.45);
+}
+.vp-btn--primary:active {
+  transform: translateY(0);
+}
+.vp-btn--primary:disabled {
+  opacity: 0.65;
+  cursor: not-allowed;
+  transform: none;
+}
+
+.vp-btn--google {
+  background: var(--vp-surface);
+  color: var(--vp-text);
+  border: 1.5px solid var(--vp-border);
+  margin-top: 0;
+}
+.vp-btn--google:hover {
+  border-color: #94a3b8;
+  background: #f8fafc;
+  transform: translateY(-1px);
+}
+
+.vp-google-icon {
+  flex-shrink: 0;
+}
+
+/* Spinner */
+.vp-spinner-icon {
+  animation: vp-spin 0.8s linear infinite;
+}
+@keyframes vp-spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* ── Divider ───────────────────────────────── */
+.vp-divider {
+  position: relative;
+  text-align: center;
+  margin: 22px 0;
+}
+.vp-divider::before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 0;
+  width: 100%;
+  height: 1px;
+  background: var(--vp-border);
+}
+.vp-divider span {
+  position: relative;
+  background: var(--vp-surface);
+  padding: 0 14px;
+  font-size: 13px;
+  color: var(--vp-text-muted);
+  font-weight: 500;
+}
+
+/* ── Card footer ───────────────────────────── */
+.vp-login-card__footer {
+  text-align: center;
+  font-size: 14px;
+  color: var(--vp-text-muted);
+  margin-top: 20px;
+}
+.vp-login-card__footer a {
+  color: var(--vp-primary);
+  font-weight: 600;
+  text-decoration: none;
+}
+.vp-login-card__footer a:hover {
+  text-decoration: underline;
+}
+
+/* ══════════════════════════════════════════
+   RESPONSIVE
+══════════════════════════════════════════ */
+@media (max-width: 1024px) {
+  .vp-login-visual__title {
+    font-size: 30px;
+  }
+  .vp-login-logo img,
+  .vp-login-logo .custom-logo-link img,
+  .vp-login-logo__img {
+    height: 38px;
+  }
+  .vp-login-card {
+    padding: 36px 32px;
+  }
+}
+
+@media (max-width: 768px) {
+  .vp-login-wrap {
+    grid-template-columns: 1fr;
+  }
+  .vp-login-visual {
+    display: none;
+  }
+  .vp-login-form-col {
+    padding: 32px 20px;
+    background: linear-gradient(160deg, #e0f2fe 0%, #f0f9ff 100%);
+    min-height: 100vh;
+  }
+
+  /* Hiện logo mobile trong card */
+  .vp-login-card__logo-mobile {
+    display: block;
+  }
+  .vp-login-card__logo-mobile img,
+  .vp-login-card__logo-mobile .custom-logo-link img,
+  .vp-login-card__logo-img {
+    height: 32px;
+  }
+
+  .vp-login-card {
+    padding: 32px 24px;
+    border-radius: 20px;
+  }
+  .vp-recaptcha-wrap .g-recaptcha {
+    transform: scale(0.85);
+  }
+}
+
+@media (max-width: 400px) {
+  .vp-login-card {
+    padding: 28px 18px;
+  }
+  .vp-login-card__title {
+    font-size: 24px;
+  }
+  .vp-btn {
+    height: 46px;
+    font-size: 14px;
+  }
+  .vp-login-card__logo-mobile img,
+  .vp-login-card__logo-img {
+    height: 28px;
+  }
+}
